@@ -1,0 +1,31 @@
+<!--La etiqueta script será para poder realizar nuestro código JavaScript y así poder hacer una piramide-->
+<script>
+    //Aquí añado los pisos que me ha indicado el usuario a una variable
+    let numPisos = prompt("Dame la altitud de la piramide [1-20]",0);
+    //Aquí compruebo que lo que el usuario nos pase, sea de un determinado rango
+    if(numPisos >= 1 && numPisos <= 20){
+        //Hago el bucle for que será para cada piso, cuantos espacios tiene, cuantos asteriscos...
+        for(var i = 0; i <= numPisos; ++i){
+            //Hago este bucle for para especificar los espacios 
+            for(var k = i; k <= numPisos; ++k){
+                //Le he puesto dos espacios por cada ciclo de bucle debido al espacio/resolución de la pantalla
+                document.write("&nbsp;");  
+                document.write("&nbsp;"); 
+            }
+            //El siguiente bucle se ha hecho para añadir los asteriscos de la piramide
+            /*
+            Se le ha multiplicado *2 y restado -1, para que en cada piso imprima la cantidad de asteriscos necesaría
+            para que se vea como una piramide
+            */
+            for(var j = 0; j < i*2-1; ++j){
+                document.write("*");
+            }
+            //Por ultimo, pasaremos al siguiente piso de la piramide con br
+            document.write("<br>");
+        }
+    }else{
+        //Si el usuario no ha cumplido lo que se le ha dicho saltará un alert u le indicará que tiene que volver a indicar un valor nuevo
+        alert("TIENE QUE SER UN VALOR ENTRE EL 1 Y EL 20 RECARGA LA PÁGINA!");
+    }
+    document.write("<p>2DAW Mike Steel PR02");
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Calculadora Basica</title>
+</head>
+<h1>Calculadora Mike Steel Marín</h1>
+<script>
+    let operacion = prompt("Que operación desea realizar? \n Sumar(+) Restar(-) Multiplicar(*) Dividir(/) Elevado(exp)");
+    let operando1;
+    let operando2;
+    let resultado;
+
+    if(operacion == '+' || operacion == '-' || operacion == '*' || operacion == '/' || operacion == 'exp'){
+        operando1 = parseInt(prompt("Dime el primer operando"));
+        operando2 = parseInt(prompt("Dime el segundo operando"));
+    }
+
+    switch(operacion){
+        case '+':
+            suma();
+            document.write("La suma de "+operando1+" y "+operando2+" es "+resultado);
+            break;
+        case '-':
+            resta();
+            document.write("La resta de "+operando1+" y "+operando2+" es "+resultado);
+            break;
+        case '*':
+            multiplicación();
+            document.write("La multiplicación de "+operando1+" y "+operando2+" es "+resultado);
+            break;
+        case '/':
+            division();
+            document.write("La division de "+operando1+" y "+operando2+" es "+resultado);
+            break;
+        case 'exp':
+            exponente();
+            document.write("El exponente de "+operando1+" y "+operando2+" es "+resultado);
+            break;
+        default:
+            document.write("Error, refresca la página [F5]");
+            break;
+    }
+
+    function suma(){
+        resultado = operando1 + operando2;
+    }
+
+    function resta(){
+        resultado = operando1 - operando2;
+    }
+    function multiplicación(){
+        resultado = operando1 * operando2;
+    }
+
+    function division(){
+        resultado = operando1 / operando2;
+    }
+    function exponente(){
+        resultado = Math.pow(operando1, operando2);
+    }
+
+</script>
+</html>
