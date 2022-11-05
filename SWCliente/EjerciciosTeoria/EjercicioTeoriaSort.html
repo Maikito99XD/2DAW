@@ -1,0 +1,55 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            let recogeCantidadNotas = parseInt(prompt("Cuntas notas quieres poner?"));
+            let arrayNotas = [];
+            let lista =['4','8','3','10','5','2','9'];
+            let totalNotasAprobadas = 0;
+            let notasAprobadas = 0;
+            let arrayNotasAprobadas = [];
+            let todasAprobadas = false;
+            document.write(lista);
+            lista.sort((a,b)=>a-b);
+            document.write("<br>");
+            
+            document.write(lista);
+            document.write("<br>");
+
+            if(recogeCantidadNotas >= 1){
+                for(let i = 0;i<recogeCantidadNotas;i++){
+                    arrayNotas[i] = parseInt(prompt("Dime una nota"));
+                }
+                document.write(arrayNotas);
+                document.write("<br>");
+
+                for(let k = 0;k<arrayNotas.length;k++){
+                    
+                    if(descubreNotasAprobados(arrayNotas[k])){
+                        arrayNotasAprobadas[notasAprobadas] = arrayNotas[k];
+                        totalNotasAprobadas += arrayNotas[k];
+                        notasAprobadas++;
+                    }
+                }
+
+                document.write("<br>");
+                document.write("La nota media de todas las notas aprobadas es de: "+ (totalNotasAprobadas / arrayNotasAprobadas.length));
+
+            }
+
+            function descubreNotasAprobados(nota){
+                if(nota >= 5){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+            
+
+
+        </script>
+    </body>
+</html>

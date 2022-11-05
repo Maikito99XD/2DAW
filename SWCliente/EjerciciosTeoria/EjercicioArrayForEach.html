@@ -1,0 +1,17 @@
+<script>
+    let arrayDiasSemana = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+    if(arrayDiasSemana.includes("Martes")){
+        document.write("Se ha encontrado el martes");
+    }
+
+    let arr1 = ["Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+    let arr2 = arr1;
+    document.write("<br><br> Array 1: "+arr1+"<br>");
+    arr2.pop();
+    document.write("<br> Array 1: "+arr1+"<br>");
+    document.write("Array 2: "+arr2+"<br>")
+    let arr3 = arr1.slice();
+    arr3.pop();
+    document.write("<br> Array 1: "+arr1+"<br>");
+    document.write("Array 3: "+arr3+"<br>");
+</script>
