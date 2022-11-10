@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de DOM</title>
+  
+<head>
+       <style>
+              .miClase {
+                    border:solid 1px orange;
+                    background-color:silver;
+                    font-size:1.5em;
+                    color:white;
+                    text-align:center;
+              }
+			  .miClase2 {
+                    border:solid 1px red;
+                    background-color:silver;
+                    font-size:2.5em;
+                    color:white;
+                    text-align:center;
+                     }
+                    .miClase3 {
+                    border:solid 1px red;
+                    background-color:silver;
+                    font-size:2.5em;
+                    color:white;
+                    text-align:center;
+                    }
+                    .miClase4 {
+                    border:solid 1px red;
+                    background-color:silver;
+                    font-size:2.5em;
+                    color:white;
+                    text-align:center;
+              }
+       </style>
+</head>
+<body>
+       <h1>Esto es un titular</h1>    
+	   <h1>Esto es un titular2</h1> 
+
+       <script>                               
+
+              var titular = document.getElementsByTagName("h1")[0];
+              
+              titular.className = "miClase";
+			  titular.classList.add('miClase2');
+			  titular.classList.remove('miClase2');
+			  titular = document.getElementsByTagName("h1")[1];
+			  titular.className = "miClase2";
+			  titular.classList.replace('miClase2', 'miClase');  
+              titular.classList.remove('miClase');	
+              
+              var titular2 = document.getElementsByTagName("h1")[1];
+
+              titular2.className = "miClase3";
+                     titular2.classList.add('miClase4');
+                     titular2.class.remove('miClase4');
+                     titular2 = document.getElementsByTagName("h1")[1];
+                     titular.className = "miClase4";
+                     titular.classList.replace('miClase4','miClase3');
+              titular.classList.remove('miClase4');
+			  
+			  
+
+       </script>   
+</body>
+</html> 

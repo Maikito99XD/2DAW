@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de DOM</title>
+</head>
+<body>
+  
+<h1>Primera capçalera</h1>
+<ul>
+  <li>Primer element de la primera llista</li>
+  <li>Segon element de la primera llista</li>
+  <li>Tercer element de la primera llista</li>
+</ul>
+<h1 class="secundari">Segona capçalera</h1>
+<p id="contingut" class="secundari paragraf">Un paràgraf</p>
+<ul>
+  <li>Primer element de la segona llista</li>
+  <li>Segon element de la segona llista</li>
+  <li>Tercer element de la segona llista</li>
+</ul>
+
+<script>
+
+//Añadimos un nuevo elemento a la lista.
+//--------------------------------------
+let nuevoLi = document.createElement('li');
+let textoLi = document.createTextNode('Nuevo elemento de lista');
+nuevoLi.appendChild(textoLi);     //Añadimos el texto al nuevo elemento
+let miPrimeraLista = document.getElementsByTagName('ul')[0];  // selecciona el 1º UL de la página
+miPrimeraLista.appendChild(nuevoLi);    // añade LI como último hijo de UL, es decir al final de la lista
+
+//Añadimos un nuevo elemento al principio de la lista.
+//----------------------------------------------------
+miPrimeraLista = document.getElementsByTagName('ul')[0];   // selecciona el 1º UL de la página
+let primerElementoDeLista = miPrimeraLista.getElementsByTagName('li')[0];   // selecciona el 1º LI de miPrimeraLista
+miPrimeraLista.insertBefore(nuevoLi, primerElementoDeLista);                // añade LI al principio de la lista
+
+
+//Elimina el primer Elemento de la lista.
+//---------------------------------------
+miPrimeraLista = document.getElementsByTagName('ul')[0];  // selecciona el 1º UL de la página
+primerElementoDeLista = miPrimeraLista.getElementsByTagName('li')[0];   // selecciona el 1º LI de miPrimeraLista
+miPrimeraLista.removeChild(primerElementoDeLista);    // borra el primer elemento de la lista
+
+
+//Intercambio dos Elementos de la lista.
+//---------------------------------------
+miPrimeraLista = document.getElementsByTagName('ul')[0];  // selecciona el 1º UL de la página
+primerElementoDeLista = miPrimeraLista.getElementsByTagName('li')[0];  // selecciona el 1º LI de miPrimeraLista
+miPrimeraLista.replaceChild(nuevoLi, primerElementoDeLista);    // reemplaza el 1º elemento de la lista con nuevoLi
+
+</script>
+</body></html> 

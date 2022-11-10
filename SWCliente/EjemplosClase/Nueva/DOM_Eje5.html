@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de DOM</title>
+</head>
+<body>
+
+ <input name="nombre">Nombre<br> 
+ <input type="radio" name="sexo" value="H">Hombre<br> 
+ <input type="radio" name="sexo" value="M">Mujer
+
+<script>
+let contenidor = document.getElementsByName("sexo"); 
+//console.log(contenidor[0].type);
+let yo=document.querySelectorAll('input');
+for(let i=1;i<yo.length;i++){
+   console.log(yo[i].value);
+}
+</script>
+</body></html> 

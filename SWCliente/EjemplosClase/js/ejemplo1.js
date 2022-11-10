@@ -19,3 +19,4 @@ console.log("Elementos images");
 console.log(document.images);
 console.log("Elementos scripts");
 console.log(document.scripts);
+
