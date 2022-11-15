@@ -10,15 +10,83 @@
 <p id="demo"></p>
 
 <script>
+//Se le añade un event listener al boton
 document.getElementById("miBoton").addEventListener("click", displayDate);
-
-
-
+//DisplayDate será la función que nos mostrará todo al pulsar el boton
 function displayDate() {
   document.getElementById("demo").innerHTML = Date(); //Añade la Fecha
-  alert("Botón pulsado!");
+  document.getElementById("demo").innerHTML = "Boton pulsado!"; //Salta un mensaje de boton pulsado
 }
+//Ejercicio 1
+//Mediante outerWidth y outerHeight obtenemos la altura y anchura de la pantalla para así saber la medida de la pantalla
 document.getElementById("demo").innerHTML = window.outerWidth+"x"+window.outerHeight;
+
+//Ejercicio 2
+//Creamos un eventListener de mouseenter para que cuando el raton entre en contacto con el boton realice la funcion movingMyMouse
+document.getElementById("miBoton").addEventListener("mouseenter", movingMyMouse);
+
+function movingMyMouse(){
+   //Se crea el elemento P para poder seguir añadiendo texto
+  var newP = document.createElement("p");
+  //Se le asignará un texto
+  var newContent = document.createTextNode("Raton sobre el boton");
+  newP.appendChild(newContent); //añade texto al p creado.
+
+  // añade el elemento creado y su contenido al DOM
+  var currentP = document.getElementById("demo");
+   //Se insertará despues de la p actual
+  document.body.insertBefore(newP, currentP);
+}
+//Creamos un eventListener de mouseenter para que cuando el raton entre en contacto con el boton realice la funcion movingMyMouse2
+document.getElementById("miBoton").addEventListener("mouseleave", movingMyMouse2);
+
+function movingMyMouse2(){
+  //Se crea el elemento P para poder seguir añadiendo texto
+  var newP = document.createElement("p");
+  //Se le asignará un texto
+  var newContent = document.createTextNode("Raton sale");
+  newP.appendChild(newContent); //añade texto al p creado.
+
+  // añade el elemento creado y su contenido al DOM
+  var currentP = document.getElementById("demo");
+  //Se insertará despues de la p actual
+  document.body.insertBefore(newP, currentP);
+}
+
+//Ejercicio 3
+
+var teclaPresionada = false;
+//Se crea el evento en toda la pagina, cuando una tecla deje de ser presionada se activará el evento
+addEvent(document, "keydown", function (e) {
+
+  if(!teclaPresionada){
+    //En caso de que sea uno de los dos se añadirá a la variable codigo
+    var codigo = event.which || event.keyCode;
+    //En caso de que el codigo sea 13 será la tecla enter
+    if(codigo === 13){
+      alert("Evento tecla pulsada\nSe ha pulsado la tecla: ENTER");
+    }
+    //En caso de que esté entre 65 y 90 quiere decir que es una letra
+    if(codigo >= 65 && codigo <= 90){
+      alert("Evento tecla pulsada\nSe ha pulsado la tecla: "+String.fromCharCode(codigo));
+    //De lo contrario será un numero
+    }else{
+      alert("Evento tecla pulsada\nSe ha pulsado la tecla: "+String.fromCharCode(codigo));
+    }
+  }
+
+});
+//Se añadirá el elemento con el elemento y su nombre
+function addEvent(element, eventName, callback) {
+    //Se añadirá un listener
+    if (element.addEventListener) {
+        element.addEventListener(eventName, callback, false);
+    } else if (element.attachEvent) {
+        element.attachEvent("on" + eventName, callback);
+    } else {
+        element["on" + eventName] = callback;
+    }
+}
 </script>
 
 </body>

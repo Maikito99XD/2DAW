@@ -43,6 +43,7 @@ function crearLista(){
         li = document.createElement('li');
         //Le agregamos texto mediante innerHTML, el cual será una de las tareas pendientes del usuario
         li.innerHTML = arrayTareasPendientes[i];
+        //Añadimos una clase cualquiera para poder tener clases y luego poder manejarlas
         li.classList.add('tarea'+i);
         //Se añadirá el li a la lista
         lista[i] = li;
@@ -131,7 +132,7 @@ function prioridadTarea(){
                     //Comprobamos cual es la prioridad que quiere el usuario y se le añadirá un color o se le eliminará la prioridad
                     switch(tipoPrioridadTarea){
                         case "1":
-                            //Con class 
+                            //Con replace podemos cambiar la clase que tenga un elemento html por otro, className sacará el nombre actual de la clase
                             lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'alta');
                             break;
                         case "2":
@@ -141,6 +142,7 @@ function prioridadTarea(){
                             lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'baja');
                             break;
                         case "4":
+                            //Al dejar null la nueva clase, no se le añade ninguna otra clase por lo tanto no se le aplicará ningún estilo
                             lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,null);
                             break;
                     }
