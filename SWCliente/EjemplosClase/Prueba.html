@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de DOM</title>
+</head>
+<body>
+  
+<h1>Primera capçalera</h1>
+
+<h1>Objeto Window</h1>
+<p>Abre "miWindow" y mueve la nueva ventana 100px relativos a su posicion
+actual:</p>
+<button onclick="abreWin()">Open "miWindow"</button>
+
+<!--<script src="js/Ejemplo2.js"></script> -->
+<script>
+    let miWindow;
+    var configuracion_ventana = "left=100,top=200,width=500,height=200";
+    function abreWin() {
+     miWindow = window.open("", "", configuracion_ventana);
+     miWindow.document.write("<h1>HOLA</h1>");
+     let idTimeout=setTimeout(function() {
+     miWindow.moveBy(100, 100);
+     }, 2000);
+     let idTimeout2=setTimeout(function(){
+        miWindow.moveBy(300,800);
+     },3000);
+     idTimeout=setTimeout(function() {
+     miWindow.close();
+     }, 3000);
+    }
+    location.assign("https://www.google.es");
+    let url = "https://www.google.es";
+    let miGoogle;
+    miGoogle = window.location.href();
+    console.log(miGoogle);
+    miGoogle = window.location.protocol();
+    console.log(miGoogle);
+    miGoogle = window.location.host();
+    console.log(miGoogle);
+    miGoogle = window.location.port();
+    console.log(miGoogle);
+    miGoogle = window.location.pathname();
+    console.log(miGoogle);
+    miGoogle = window.location.reload();
+    console.log(miGoogle);
+    miGoogle = window.location.assign(url);
+    console.log(miGoogle);
+    miGoogle = window.location.replace(url);
+    console.log(miGoogle);
+    console.log(window.history.length);
+    console.log(window.history.back);
+    console.log(window.history.forward);
+    console.log(window.history.go(2));
+    
+
+
+    </script>
+</body></html> 

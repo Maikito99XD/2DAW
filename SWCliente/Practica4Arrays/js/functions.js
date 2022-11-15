@@ -26,7 +26,7 @@ function clearItems(notas){
         IMPORTANTE, por que se le pone el parseInt? Esto es por que prompt nos pasa los datos del usuario mediante un string entonces hay
         que hacer la conversión a Integer para poder comprobar que efectivamente es un numero.
         */
-        if(Number.isInteger(parseInt(notasSeparadas[i]))){
+        if(!isNaN(notasSeparadas[i])){
             //Solo pueden haber hasta 5 notas
             if(cantidadNotas <= 4){
                 /*
@@ -35,8 +35,8 @@ function clearItems(notas){
                 no se tiene en cuenta el - en el 0 haciendo así que un usuario nos la pueda colar fácilmente y fastidiar todo el programa saltando
                 muchos errores.
                 */
-                if(parseInt(notasSeparadas[i]) >= 0 && parseInt(notasSeparadas[i]) <= 10 && notasSeparadas[i] != ("-0")){
-                    notasSeparadasComprobadas[cantidadNotas] = parseInt(notasSeparadas[i]);
+                if(notasSeparadas[i] >= 0 && notasSeparadas[i] <= 10 && notasSeparadas[i] != ("-0")){
+                    notasSeparadasComprobadas[cantidadNotas] = notasSeparadas[i];
                     cantidadNotas++;
                 }
             }else{
@@ -62,7 +62,7 @@ function notaMaxima(notas){
     for (let i = 0; i < notas.length; i++){ 
         //La variable notaActual nos servirá para saber cual es la nota actual, se parsea para cerciorarse de que sea un Integer
         //Nota: Se podría hacer en el if, sin embargo y por alguna razón me da error y me saca un NaN
-        let notaActual = parseInt(notas[i])
+        let notaActual = parseInt(notas[i]);
         //Se comprueba la nota maxima comparandola con la actual y de ser menor, se almacena
         if(notaMaxima < notaActual){
             //Se almacena la mayor en la variable notaMaxima
