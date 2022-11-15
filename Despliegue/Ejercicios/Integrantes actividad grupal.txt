@@ -1,0 +1,11 @@
+LiteSpeed Web Server
+Sergi, Juanmi y Santi
+
+Microsoft IIS
+Iker, Sebas y Francisco
+
+Apache
+Ainhoa y Nico
+
+Nginx
+Guillermo, Isaac y Mike
