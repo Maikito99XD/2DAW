@@ -1,0 +1,27 @@
+.baja{
+    border:solid 1px black;
+    background-color: green;
+    font-size:1.1em;
+    color:black;
+    font-weight: bold
+}
+
+.media{
+    border:solid 1px black;
+    background-color: orange;
+    font-size:1.1em;
+    color:black;
+    font-weight: bold
+}
+
+.alta{
+    border:solid 1px black;
+    background-color: red;
+    font-size:1.1em;
+    color:black;
+    font-weight: bold
+}
+
+li{
+    width: 300px;
+}

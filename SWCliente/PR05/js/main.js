@@ -43,6 +43,7 @@ function crearLista(){
         li = document.createElement('li');
         //Le agregamos texto mediante innerHTML, el cual será una de las tareas pendientes del usuario
         li.innerHTML = arrayTareasPendientes[i];
+        li.classList.add('tarea'+i);
         //Se añadirá el li a la lista
         lista[i] = li;
         //Insertaremos cada nodo li en el listado ol
@@ -130,16 +131,17 @@ function prioridadTarea(){
                     //Comprobamos cual es la prioridad que quiere el usuario y se le añadirá un color o se le eliminará la prioridad
                     switch(tipoPrioridadTarea){
                         case "1":
-                            lista[tareaCambiarPrioridad].style.backgroundColor = 'red';
+                            //Con class 
+                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'alta');
                             break;
                         case "2":
-                            lista[tareaCambiarPrioridad].style.backgroundColor = 'orange';
+                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'media');
                             break;
                         case "3":
-                            lista[tareaCambiarPrioridad].style.backgroundColor = 'green';
+                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'baja');
                             break;
                         case "4":
-                            lista[tareaCambiarPrioridad].style.backgroundColor = null;
+                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,null);
                             break;
                     }
                 }else{
