@@ -10,39 +10,39 @@
 <p id="demo"></p>
 
 <script>
+//Creamos el textarea con dom
 let myTextArea = document.createElement("textarea");
-
+//obtenemos la p con el id demo
 let objP = document.getElementById("demo");
-
+//Lo añadimos al documento debajo del elemento p con id demo
 objP.appendChild(myTextArea);
-
+//Le añadimos un id al text area
 myTextArea.classList.add("myTextArea");
+//Le indicamos las columnas y filas que podrá tener el textarea
 myTextArea.cols = "25";
 myTextArea.rows = "10";
-
+//Creamos el input
 let myInput = document.createElement("input");
-
-
+//Agregamos saltos de linea
 objP.appendChild(document.createElement("br"));
 objP.appendChild(document.createElement("br"));
-
+//Añadimos el input al documento debajo del textarea 
 objP.appendChild(myInput);
-
-
+//Le añadimos el atributo de tipo texto al input
 myInput.setAttribute("type","text");
-
+//Le añadimos la clase myInput al input
 myInput.classList.add("myInput");
-
+//Creamos un eventListener al textarea de tipo input con la función addColor para agregar un color de fondo cuando escriba algo el usuario
 myTextArea.addEventListener("input", addColor);
-
+//Esta función nos añadirá el color de fondo que le indiquemos al objeto que nos pasen
 function addColor(){
     this.style.backgroundColor = 'gray';
 }
-
+//Hacemos un focus para que cuando un usuario se centre en el input salga de color amarillo
 myInput.addEventListener("focus", (event) => {
     event.target.style.background = 'yellow';
 });
-
+//En caso de que no esté dentro del input le pasaremos un blur haciendo que no tenga color de fondo 
 myInput.addEventListener("blur", (event) => {
     event.target.style.background = '';
 });
