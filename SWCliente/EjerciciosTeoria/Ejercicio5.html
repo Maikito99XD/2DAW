@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript addEventListener()</h2>
+<p>Este Ejemplo utiliza el metodo addEventListener() para anyadir un Evento a un Boton.</p>
+
+<button id="miBoton">PULSA</button>
+
+<p id="demo"></p>
+
+<script>
+let myTextArea = document.createElement("textarea");
+
+let objP = document.getElementById("demo");
+
+objP.appendChild(myTextArea);
+
+myTextArea.classList.add("myTextArea");
+myTextArea.cols = "25";
+myTextArea.rows = "10";
+
+let myInput = document.createElement("input");
+
+
+objP.appendChild(document.createElement("br"));
+objP.appendChild(document.createElement("br"));
+
+objP.appendChild(myInput);
+
+
+myInput.setAttribute("type","text");
+
+myInput.classList.add("myInput");
+
+myTextArea.addEventListener("input", addColor);
+
+function addColor(){
+    this.style.backgroundColor = 'gray';
+}
+
+myInput.addEventListener("focus", (event) => {
+    event.target.style.background = 'yellow';
+});
+
+myInput.addEventListener("blur", (event) => {
+    event.target.style.background = '';
+});
+</script>
+
+</body>
+</html>

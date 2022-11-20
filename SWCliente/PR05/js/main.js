@@ -6,6 +6,7 @@ let lista = [];
 let ol = "";
 //La cantidad máxima de tareas pendientes que podrá introducir el usuario 
 let cantidadMaxTareas = 5;
+let cantidadMaxPrioridades = 4;
 //El cambio de una tarea por otra que nos indique el usuario
 let modificarTarea = "";
 
@@ -44,7 +45,7 @@ function crearLista(){
         //Le agregamos texto mediante innerHTML, el cual será una de las tareas pendientes del usuario
         li.innerHTML = arrayTareasPendientes[i];
         //Añadimos una clase cualquiera para poder tener clases y luego poder manejarlas
-        li.classList.add('tarea'+i);
+        //li.classList.add('tarea'+i);
         //Se añadirá el li a la lista
         lista[i] = li;
         //Insertaremos cada nodo li en el listado ol
@@ -127,24 +128,28 @@ function prioridadTarea(){
                 let tipoPrioridadTarea = prompt("Que nueva prioridad quieres añadir o eliminar a la tarea?\n1-Rojo,2-Naranja,3,Verde,4-Elimina Prioridad");
                 //Comprobamos que esa prioridad sea un numero, en caso contrario le diremos que tiene que introducir un numero
                 if(!isNaN(tipoPrioridadTarea)){
-                    //Le restaremos -1 a tareaCambiarPrioridad para que así lo podamos comparar con la posición en el array de lista
-                    tareaCambiarPrioridad -= 1;
-                    //Comprobamos cual es la prioridad que quiere el usuario y se le añadirá un color o se le eliminará la prioridad
-                    switch(tipoPrioridadTarea){
-                        case "1":
-                            //Con replace podemos cambiar la clase que tenga un elemento html por otro, className sacará el nombre actual de la clase
-                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'alta');
-                            break;
-                        case "2":
-                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'media');
-                            break;
-                        case "3":
-                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,'baja');
-                            break;
-                        case "4":
-                            //Al dejar null la nueva clase, no se le añade ninguna otra clase por lo tanto no se le aplicará ningún estilo
-                            lista[tareaCambiarPrioridad].classList.replace(lista[tareaCambiarPrioridad].className,null);
-                            break;
+                    if(tipoPrioridadTarea > 0 && tipoPrioridadTarea <= cantidadMaxPrioridades){
+                        //Le restaremos -1 a tareaCambiarPrioridad para que así lo podamos comparar con la posición en el array de lista
+                        tareaCambiarPrioridad -= 1;
+                        //Comprobamos cual es la prioridad que quiere el usuario y se le añadirá un color o se le eliminará la prioridad
+                        switch(tipoPrioridadTarea){
+                            case "1":
+                                //Con replace podemos cambiar la clase que tenga un elemento html por otro, className sacará el nombre actual de la clase
+                                lista[tareaCambiarPrioridad].classList.add('alta');
+                                break;
+                            case "2":
+                                lista[tareaCambiarPrioridad].classList.add('media');
+                                break;
+                            case "3":
+                                lista[tareaCambiarPrioridad].classList.add('baja');
+                                break;
+                            case "4":
+                                //Al dejar null la nueva clase, no se le añade ninguna otra clase por lo tanto no se le aplicará ningún estilo
+                                lista[tareaCambiarPrioridad].classList.remove(lista[tareaCambiarPrioridad].className);
+                                break;
+                        }
+                    }else{
+                        alert("Tienes que introducir un numero entre el 1 y el 4!");
                     }
                 }else{
                     alert("Tienes que introducir solamente los numeros entre el [1-4]");
