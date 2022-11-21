@@ -1,0 +1,22 @@
+<div id="padre">Padre
+    <div id="hijo">Hijo
+    <button id="button">
+    PULSA!
+    </button>
+    </div>
+   </div>
+   <script>
+    const button = document.querySelector("#button");
+    const hijo = document.querySelector("#hijo");
+    const padre = document.querySelector("#padre");
+    button.addEventListener("click", () => {
+    alert("PULSADO");
+    })
+    hijo.addEventListener("click", () => {
+    alert("PULSADO HIJO!");
+    })
+    padre.addEventListener("click", () => {
+    alert("PULSADO PADRE!");
+    })
+   </script>
+   </body>
