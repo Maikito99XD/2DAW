@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Bubling</title>
+  
+  <style type="text/css">
+ #padre{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  border: 1px solid #000;
+  width:250px;
+  height: 300px;
+  background-color:lightgreen;
+}
+
+#hijo{
+  border: 1px solid #111;
+  width: 150px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background-color:lightskyblue
+} 
+    
+</style>
+</head>
+<body>
+ 
+<div id="padre">Padre
+  <div id="hijo">Hijo
+    <button id="button">
+      PULSA!
+    </button>
+  </div>
+</div>
+
+<script>
+   const button = document.querySelector("#button");
+   const hijo = document.querySelector("#hijo");
+   const padre = document.querySelector("#padre");
+
+   button.addEventListener("click", () => {
+      alert("PULSADO");
+   },true)
+   hijo.addEventListener("click", () => {
+      alert("PULSADO HIJO!");
+   },true)
+   //Ejercicio 6
+   //Al indicarle true en capture, capturará primero al padre debido a que es el que engloba a los demás
+   padre.addEventListener("click", () => {
+     alert("PULSADO PADRE!");
+   },true)
+</script>
+</body></html> 
