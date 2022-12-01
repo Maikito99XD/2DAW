@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      //La función draw pintará el recuadro del canvas
+      function draw(){
+        //Se recoge con DOM el elemento canvas con el id rectanguloRelleno
+        var canvas2 = document.getElementById('rectanguloRelleno');
+        //getContext nos dirá si el canvas es compatible con el navegador
+        if (canvas2.getContext){
+          //Le indicamos que será para graficos 2D
+          var ctx2 = canvas2.getContext('2d');
+          //BeginPath es para empezar a trazar dentro del canvas
+          ctx2.beginPath();
+          //Se moverá lo que debe trazar a la posición que le indiquemos
+          ctx2.moveTo(25,25);
+          //Creará la linea en la posición que le indiquemos
+          ctx2.lineTo(25,125);
+          ctx2.lineTo(125,25);
+          //Fill rellenará la forma del color que le indiquemos por default será en negro
+          //Aunque falte una linea, lo rellenará y lo cerrará con fill
+          ctx2.fill();
+
+          //BeginPath es para empezar a trazar dentro del canvas
+          ctx2.beginPath();
+          //Se moverá lo que debe trazar a la posición que le indiquemos
+          ctx2.moveTo(150,150);
+          //Creará la linea en la posición que le indiquemos
+          ctx2.lineTo(150,50);
+          ctx2.lineTo(50,150);
+          //ClosePath será para acabar el trazado que falte para poder hacer la forma
+          ctx2.closePath();
+          //Dibujará un contorno a la forma que le hayamos indicado, no es necesario usar fill con stroke 
+          //Ya que de esta forma estás pintando y dandole contorno cosa que es desperdiciar una orden
+          ctx2.stroke();
+        }
+      }
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <!--Hacemos una llamada al metodo draw del script-->
+  <body onload="draw();">
+    <canvas id="rectanguloRelleno" width="250" height="250"></canvas>
+  </body>
+</html>

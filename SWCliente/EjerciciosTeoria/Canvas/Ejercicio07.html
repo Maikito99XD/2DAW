@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      function draw(){
+        const canvas = document.getElementById('tutorial');
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            //Antes de hacer un trasnlate es mejor hacer un save para guardar el estado
+            ctx.save();
+            //Moveremos el lienzo a la posición 50x e 50y
+            ctx.translate(50, 50);
+
+	        ctx.fillRect(0, 0, 150, 150);   // Pintamos un rectangulo
+            ctx.save();                  // Guardamos el estado
+
+            ctx.fillStyle = '#09F';      // Cambiamos el color de relleno
+            ctx.fillRect(15, 15, 120, 120); // Pintamos un rectangulo con los nuevos valores
+
+            ctx.save();                  // Guardamos el estado
+            ctx.fillStyle = '#FFF';      // Cambiamos el color de relleno
+            ctx.globalAlpha = 0.5;    //Cambiamos la transparencia
+            ctx.fillRect(30, 30, 90, 90);   // Pintamos un rectangulo con los nuevos valores
+
+            ctx.restore();               // Restauramos el estado
+            ctx.fillRect(45, 45, 60, 60);   // Dibujamos otro rectangulo
+
+            ctx.restore();               // Restauramos el estado
+            ctx.fillRect(60, 60, 30, 30);   // Dibujamos el ultimo rectangulo
+
+          }
+        }
+      
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" width="250" height="250"></canvas>
+  </body>
+</html>

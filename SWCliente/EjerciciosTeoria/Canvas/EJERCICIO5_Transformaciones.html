@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      function draw(){
+        const canvas = document.getElementById('tutorial');
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            //Antes de hacer un trasnlate es mejor hacer un save para guardar el estado
+            ctx.save();
+            //Moveremos el lienzo a la posición 50x e 50y
+            ctx.translate(50, 50);
+
+            ctx.fillRect(0,0,50,50);
+            ctx.save();
+            
+            ctx.rotate(25 * Math.PI / 180);
+            ctx.fillStyle = 'red';      // Cambiamos el color de relleno
+	        ctx.fillRect(0, 0, 50, 50);   // Pintamos un rectangulo
+            
+            ctx.restore(); 
+            ctx.scale(2,3);
+            ctx.fillStyle = 'green';      // Cambiamos el color de relleno
+	        ctx.fillRect(25, 17, 40, 30);   // Pintamos un rectangulo
+            
+
+            
+
+
+          }
+        }
+      
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" width="250" height="250"></canvas>
+  </body>
+</html>

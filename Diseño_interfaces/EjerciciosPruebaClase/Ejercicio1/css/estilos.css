@@ -1,0 +1,21 @@
+img{
+    width: 100%;
+    height: 100%;
+}
+A:link {text-decoration: none }
+A:visited {color: black;  font-family: arial; text-decoration: none }
+A:hover { color: black; font-family: arial; text-decoration: none }
+*{outline:none !important;}*:focus {outline: none !important;}textarea:focus, input:focus{outline: none !important;}	a{text-decoration: none !important;outline: none !important;}
+
+button{
+    background-color: #618985;
+}
+
+html{
+    background-color: #F2E3BC;
+}
+
+#menu{
+    border: 1px solid;
+    background-color: #FBD1A2;
+}

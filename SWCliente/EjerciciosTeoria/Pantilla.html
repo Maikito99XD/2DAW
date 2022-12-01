@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      //La función draw pintará el recuadro del canvas
+      function draw(){
+        //Se recoge con DOM el elemento canvas con el id rectanguloRelleno
+        var canvas2 = document.getElementById('rectanguloRelleno');
+        //getContext nos dirá si el canvas es compatible con el navegador
+        if (canvas2.getContext){
+          //Le indicamos que será para graficos 2D
+          var ctx2 = canvas2.getContext('2d');
+          //Llenamos el canvas con un rectangulo negro de x=10, y=10 width=100 y height=100
+          // y lo rellenaremos de color negro por que es el que está por default
+          ctx2.fillRect(10,10,100,100);
+          //En este caso solamente sacaremos el contorno de un rectangulo en las posiciones que nos indica
+          ctx2.strokeRect(150,150,50,50);
+        }
+      }
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <!--Hacemos una llamada al metodo draw del script-->
+  <body onload="draw();">
+    <canvas id="rectanguloRelleno" width="250" height="250"></canvas>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      function draw(){
+        var canvas = document.getElementById('tutorial');
+        //Creamos el objeto Image
+        let doggoImg = new Image();
+        //Buscamos la imagen en local o en una url
+        doggoImg.src = "img/250.png";
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+          //Haremos un onload para que nos cargue la imagen
+          doggoImg.onload = function(){
+            //Y le diremos que nos dibuje la imagen en la posición 0, 0
+            //Si la imagen es muy grande no nos aparecerá nada, sin embargo si le ponemos 2 instrucciones
+            //más, le podremos indicar tanto el width como el heigh
+            ctx.drawImage(doggoImg,0,0);
+          }
+        }
+      }
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" width="250" height="250"></canvas>
+  </body>
+</html>
