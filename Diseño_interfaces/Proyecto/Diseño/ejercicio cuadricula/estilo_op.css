@@ -1,0 +1,35 @@
+*{box-sizing: border-box;}
+
+body{
+  margin: 20px 20px 0 20px;
+}
+
+.bloque{
+  overflow: hidden;
+}
+
+.continente{
+  float: left;
+  width: 50%;
+  padding-right: 10px;
+}
+
+.derecha{
+  padding-right: 0;
+  padding-left: 10px;
+}
+
+.contenido{
+ background: rgb(120, 32, 32);
+ min-height: 200px;
+ margin-bottom: 20px;
+}
+
+.arriba{
+  min-height: 100px;
+}
+
+.flotaderecha
+{
+    float: right;
+}

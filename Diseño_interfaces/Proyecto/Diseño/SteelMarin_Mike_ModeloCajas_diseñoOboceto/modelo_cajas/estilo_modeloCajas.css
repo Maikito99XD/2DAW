@@ -1,0 +1,59 @@
+*{box-sizing: border-box;}
+
+body{
+  margin: 20px 20px 0 20px;
+}
+
+.bloque{
+  overflow: hidden;
+}
+
+.menu{
+  min-height: 75px;
+  background-color: #61ddea;
+  margin-bottom: 20px;
+}
+
+.contenidoContacto{
+  min-height: 100px;
+  background-color: #0c2483;
+  margin-bottom: 20px;
+}
+
+.continente{
+  float: left;
+  width: 50%;
+  padding-right: 10px;
+}
+
+.derecha{
+  padding-right: 0;
+  padding-left: 10px;
+}
+
+.contenido{
+ background: #d06aff;
+ min-height: 200px;
+ margin-bottom: 20px;
+}
+
+.carruselFotos{
+  background: #c940cd;
+  min-height: 300px;
+  margin-bottom: 20px;
+}
+
+.footer{
+  background: #37503a;
+ min-height: 50px;
+ margin-bottom: 20px;
+}
+
+.arriba{
+  min-height: 100px;
+}
+
+.flotaderecha
+{
+    float: right;
+}

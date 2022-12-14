@@ -1,0 +1,49 @@
+ *{box-sizing: border-box;
+ /* margin: 0px;
+ padding: 0px; */
+}
+
+.bloquegrande{
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+body{
+        background-color: rgb(168, 247, 201); 
+        margin: 20px 20px 0 20px;
+}
+
+.b01{
+    background: green;
+    min-height: 150px;
+    margin-bottom: 20px;
+}
+
+.b02{
+    float: left;
+    width: 50%;
+    padding-right: 10px;
+  /*   border: 5px; */
+    
+}
+
+.b03{
+    float: left;
+    width: 50%;
+    padding-right: 0px; 
+    padding-left: 10px;
+    
+}
+
+.contenido{
+    background: green;
+    min-height: 200px;
+    margin-bottom: 20px;
+}
+
+.flotaderecha{
+    float: right;
+}
+
+
+

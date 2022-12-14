@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+      var x = 25;
+      function draw(){
+        x++;
+        var canvas = document.getElementById('tutorial');
+        var ctx = canvas.getContext('2d');
+
+        const circle = new Path2D();
+
+        ctx.clearRect(0,0,750,250);
+        circle.arc(x,225,25,0,2*Math.PI);
+
+        ctx.fill(circle);
+
+        var valor = window.requestAnimationFrame(draw);
+
+        if(x == 725){
+          ctx.font = "30px Arial";
+          ctx.fillText("GAME OVER",250,50);
+          window.cancelAnimationFrame(valor);
+        }
+      }
+       
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="tutorial" width="750" height="250"></canvas>
+  </body>
+</html>
