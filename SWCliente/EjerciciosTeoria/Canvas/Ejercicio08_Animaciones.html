@@ -2,33 +2,44 @@
   <head>
     <title>Canvas tutorial</title>
     <script type="text/javascript">
+      //Inicializamos la variable donde la bola tendrá el eje x
       var x = 25;
+      //Creamos la funcion draw para que pinte
       function draw(){
+        //Aumentamos en 1 la posición de la bola
         x++;
+        //Recogo el canvas
         var canvas = document.getElementById('tutorial');
+        //Cojo el contexto que será el 2d
         var ctx = canvas.getContext('2d');
-
+        //Creo un objeto Path2D que será el circulo
         const circle = new Path2D();
-
+        //Se limpia la pantalla desde la posición 0x 0y con un ancho de 750px y un alto de 250px
         ctx.clearRect(0,0,750,250);
+        //Se crea un arco en la posición x que será para ir moviendose, 225y, con radio de 25
         circle.arc(x,225,25,0,2*Math.PI);
-
+        //Se colorea el circulo
         ctx.fill(circle);
-
+        //Le indicamos al navegador que vamos a hacer una animación
         var valor = window.requestAnimationFrame(draw);
-
+        //En caso de que la x llegue a 725 
         if(x == 725){
+          //Se pondrá una letra de 30px arial
           ctx.font = "30px Arial";
+          //Se creará un texto GAME OVER en la posición 250x y en la posición 50y
           ctx.fillText("GAME OVER",250,50);
+          //Se le indicará al navegador que vamos a cancelar o parar la animación
           window.cancelAnimationFrame(valor);
         }
       }
        
     </script>
+    <!--El estilo que tendrá el canvas-->
     <style type="text/css">
       canvas { border: 1px solid black; }
     </style>
   </head>
+  <!--Le decimos que carge la función draw de nuestro script-->
   <body onload="draw();">
     <canvas id="tutorial" width="750" height="250"></canvas>
   </body>
