@@ -25,14 +25,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="views/about.view.php">About</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="utils/classes/about.php">About</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="utils/classes/todosLosProductos.php">Todos los productos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="views/Prueba.view.php">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                                <li><a class="dropdown-item" href="utils/classes/electronica.php">Electrónica</a></li>
+                                <li><a class="dropdown-item" href="utils/classes/mobiliario.php">Mobiliario</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario'] == "admin"): echo 'style= "visibility: visible"'; else : echo 'style= "visibility: hidden"'?><?php endif?> class="nav-link active" aria-current="page"href="utils/classes/subirProducto.php">Subir Producto</a></li>

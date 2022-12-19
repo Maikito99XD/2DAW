@@ -5,7 +5,7 @@ class Connection
     public static function make()
     {
         $host = 'localhost';
-        $db = 'tienda';
+        $db = 'tienda2';
         $user = 'tiendaMike';      //Usuario con el que conectarse
         $pass = 'php';          //Contraseña del usuario
 

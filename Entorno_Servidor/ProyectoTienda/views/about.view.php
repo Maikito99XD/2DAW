@@ -7,33 +7,33 @@
         <meta name="author" content="Mike" />
         <title>La tienda de Paco</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../../css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
-        <!-- Navigation-->
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">La tienda de paco</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../index.php">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../index.php">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">About</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="../utils/classes/todosLosProductos.php">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="../../utils/classes/todosLosProductos.php">Todos los productos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="views/Prueba.view.php">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                                <li><a class="dropdown-item" href="../../utils/classes/electronica.php">Electrónica</a></li>
+                                <li><a class="dropdown-item" href="../../utils/classes/mobiliario.php">Mobiliario</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page"href="#!">Subir Producto</a></li>
+                        <li class="nav-item"><a <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario'] == "admin"): echo 'style= "visibility: visible"'; else : echo 'style= "visibility: hidden"'?><?php endif?> class="nav-link active" aria-current="page"href="../../utils/classes/subirProducto.php">Subir Producto</a></li>
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
@@ -43,8 +43,17 @@
                         </button>
                     </form>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="utils/classes/login.php">Login</a></li>
-                    </ul>
+                        <li class="nav-item">
+                            
+                            <?php if ($_SESSION['usuario'] == ""):?>
+                                <?='<a class="nav-link active" aria-current="page" href="../../utils/classes/login.php">Login</a></li>'?>
+                            <?php else :?>
+                                <?='<a class="nav-link active" aria-current="page" href="../../utils/classes/logOut.php">Logout</a></li>'?>
+                            <?php endif?>
+                        <li class="nav-item">
+                            <a <?php if ($_SESSION['usuario'] == ""): echo 'style= "visibility: hidden"'; else : echo 'style= "visibility: visible"'?><?php endif?> class="nav-link active" aria-current="page" href="#!"><?= $_SESSION['usuario']?></a></li>
+
+                        </ul>
                 </div>
             </div>
         </nav>
@@ -56,6 +65,9 @@
                 </div>
             </div>
         </header>
+
+        <p>En la tienda de paco podrá encontrar todo lo que quiera, desde una nevera hasta una maza</p>
+        <p>Ya que en la tienda de paco tiene todo lo que uno desea a bajo precio, buen servicio y buen transporte del producto</p>
         
         <!-- Footer-->
         <footer class="py-5 bg-dark">
@@ -64,7 +76,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="../../js/scripts.js"></script>
         
     </body>
 </html>

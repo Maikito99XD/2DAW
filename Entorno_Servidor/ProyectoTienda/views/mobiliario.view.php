@@ -60,7 +60,7 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Todos nuestros productos</h1>
+                    <h1 class="display-4 fw-bolder">Todos nuestros muebles</h1>
                 </div>
             </div>
         </header>
@@ -69,27 +69,27 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php 
-                    foreach($productos as $producto) : ?>
+                    foreach($productosMobiliarios as $productoMobiliario) : ?>
                     <div class="col mb-5">
                         <div class="card h-100">
                             
                             <!-- Product image-->
-                            <img src="data:image/jpg;base64,<?= base64_encode($producto['img']);?>" /> 
+                            <img src="data:image/jpg;base64,<?= base64_encode($productoMobiliario['img']);?>" /> 
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder"><?=$producto['nombre']?></h5>
+                                    <h5 class="fw-bolder"><?=$productoMobiliario['nombre']?></h5>
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                     <?php 
-                                    for($i = 0;$i<$producto['puntuacion'];$i++){
+                                    for($i = 0;$i<$productoMobiliario['puntuacion'];$i++){
                                         echo "<div class='bi-star-fill'></div>";
                                     }
                                     ?>
                                     </div>
                                     <!-- Product price-->
-                                    <?=$producto['precio']?>€
+                                    <?=$productoMobiliario['precio']?>€
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -110,7 +110,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        
-    </body>
+        <script src="../../js/scripts.js"></script>
+</body>
 </html>

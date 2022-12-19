@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Planetario Mike Steel Marín</title>
+    <script type="text/javascript">
+        let numImagen = 0;
+        let imagenes = ["imagenes/mercurio.jpg","imagenes/venus.jpg","imagenes/tierra.jpg","imagenes/marte.jpg","imagenes/jupiter.jpg","imagenes/saturno.jpg","imagenes/urano.jpg","imagenes/neptuno.jpg"];
+        let nombrePlanetas = ["Mercurio","Venus","Tierra","Marte","Jupiter","Saturno","Urano","Neptuno"];
+        var valor;
+        function draw(){
+            const canvas = document.getElementById('carruselPlanetas');
+            const canvas2 = document.getElementById('rotarTierra');
+
+            if(canvas2.getContext){
+                var ctx2 = canvas2.getContext("2d");
+                const sol = new Image();
+                const tierra = new Image();
+                var btiniciar = document.getElementById("iniciar");
+                var btfin = document.getElementById("finalizar");
+                ctx2.clearRect(0,0,500,50);
+                ctx2.font = "30px Arial";
+                ctx2.fillStyle = "grey";
+                ctx2.strokeText("Planetario",150,30,100,50);
+                sol.src = "png/sol.png";
+                tierra.src = "png/tierra.png";
+
+                sol.onload = function(){
+                    ctx2.drawImage(sol,150,150,100,100);
+                }
+
+                tierra.onload = function(){
+                    ctx2.arc(200,200,125,0,2*Math.PI);
+                    ctx2.strokeStyle = "grey";
+                    ctx2.stroke();
+                    ctx2.drawImage(tierra,175,300,50,50);
+                }
+
+                btiniciar.addEventListener("click",function(){
+                    valor = window.requestAnimationFrame(draw);
+                });
+
+                btfin.addEventListener("click", function(){
+                    window.cancelAnimationFrame(valor);
+                });
+
+            }
+
+            if(canvas.getContext){
+                var ctx = canvas.getContext("2d");
+                
+                setTimeout(function(){
+                    const img = new Image();
+                    img.src = imagenes[numImagen];
+                    
+                    img.onload = function(){
+                        ctx.clearRect(0,0,250,55);
+                        ctx.font = "20px Arial";
+                        ctx.fillText(nombrePlanetas[numImagen],0,50);
+                        ctx.fillStyle = "#000000";
+                        ctx.drawImage(img,0,60,200,200);
+                        if(numImagen >= (imagenes.length-1)){
+                            numImagen = 0;
+                        }else{
+                            numImagen++;
+                        } 
+                    };
+                    window.requestAnimationFrame(draw);
+                },2000);
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw();">
+    <canvas id="rotarTierra" width="500" height="500"></canvas><canvas id="carruselPlanetas" width="250" height="250"></canvas><br>
+    <button id="iniciar">Iniciar</button>
+    <button id="finalizar">Parar</button>
+</body>
+</html>

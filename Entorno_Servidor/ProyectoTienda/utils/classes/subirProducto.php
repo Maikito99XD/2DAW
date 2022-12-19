@@ -50,8 +50,10 @@
                     $precio = $_POST['precioProducto'];
                     $puntuacion = $_POST['puntuacionProducto'];
                     $categoria = $_POST['categoriaProducto'];
-                    $imagen = $_FILES['imagen'];
+                    $image = $_FILES['imagen']['tmp_name'];
+                    $imagen = addslashes(file_get_contents($image));
 
+                    /*
                     $sql = "INSERT INTO productos(nombre,precio,puntuacion,categoria,img) 
                     VALUES(:nombre,:precio,:puntuacion,:categoria,:img)";
                     $pdoStatement = $connection->prepare($sql);
@@ -60,13 +62,22 @@
                         ':puntuacion' => $puntuacion,
                         ':categoria' => $categoria,
                         ':img' => $imagen];
+                    
                     if($pdoStatement->execute($parameters) == false){
                         
                         $mensaje = "No se ha podido acceder a la BBDD";
                     }else{
                         $productos = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
                     }
-                    echo '<script language="javascript">alert("Se ha subido el producto!");</script>';
+                    */
+
+                    $insert = $connection->query("iNSERT INTO productos(nombre,precio,puntuacion,categoria,img) VALUES('$nombre','$precio','$puntuacion','$categoria','$imagen')");
+
+                    if($insert){
+                        $mensaje = "No se ha podido acceder a la BBDD";
+                    }else{
+                        echo '<script language="javascript">alert("Se ha subido el producto!");</script>';
+                    }
                 }
             }
         }
