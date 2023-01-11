@@ -1,0 +1,47 @@
+<html>
+
+<body>
+    <button id="boton">Dame mi ubicacion</button><br>
+    <script>
+        let latitud;
+        let longitud;
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+
+        function success(pos) {
+            const crd = pos.coords;
+            latitud = crd.latitude;
+
+            document.write("Tu ubicacion actual es:"+`Latitud : ${crd.latitude}`+`Longitud: ${crd.longitude}`+`Más o menos ${crd.accuracy} metros.`);
+        }
+
+        function error(err) {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
+
+        var boton = document.getElementById("boton");
+        boton.addEventListener("click",mostrar);
+
+        function mostrar(){
+            navigator.geolocation.getCurrentPosition(success, error, options);
+            abreWin();
+            
+        }
+
+        function abreWin() {
+            let miWindow;
+            var configuracion_ventana = "left=100,top=200,width=500,height=200";
+            miWindow = window.open("", "", configuracion_ventana);
+            miWindow.document.write("<a href='http://www.openstreetmap.org/?mlat=" + latitud + "&mlon=" + longitud +"&zoom=15' ");
+            let idTimeout=setTimeout(function() {
+                miWindow.moveBy(100, 100);
+            }, 2000);
+        }
+
+
+    </script>
+</body>
+</html>

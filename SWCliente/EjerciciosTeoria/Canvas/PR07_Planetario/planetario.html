@@ -4,52 +4,34 @@
     <meta charset="utf-8">
     <title>Planetario Mike Steel Marín</title>
     <script type="text/javascript">
+       
+        //se ubica el boton iniciar
+        var btiniciar = document.getElementById("iniciar");
+        //Se ubica el boton de fin 
+        var btfin = document.getElementById("finalizar");
+        //El numero de la imagen que sacará
         let numImagen = 0;
+        //El array de imagenes
         let imagenes = ["imagenes/mercurio.jpg","imagenes/venus.jpg","imagenes/tierra.jpg","imagenes/marte.jpg","imagenes/jupiter.jpg","imagenes/saturno.jpg","imagenes/urano.jpg","imagenes/neptuno.jpg"];
+        //El array de los nombres de los planetas
         let nombrePlanetas = ["Mercurio","Venus","Tierra","Marte","Jupiter","Saturno","Urano","Neptuno"];
-        var valor;
+        //Se crea la funcion rodar tierra
+        function rodarTierra(){
+            //Se crea el requestaAnimationFrame
+            valor = window.requestAnimationFrame(draw);
+        }
+        //Se crea la funcion paraTierra
+        function pararTierra(){
+            //Se cancela la animación
+            window.cancelAnimationFrame(valor);
+        }
+        //Se crea la función draw
         function draw(){
+            //Se ubica el canvas del carrusel
             const canvas = document.getElementById('carruselPlanetas');
-            const canvas2 = document.getElementById('rotarTierra');
-
-            if(canvas2.getContext){
-                var ctx2 = canvas2.getContext("2d");
-                const sol = new Image();
-                const tierra = new Image();
-                var btiniciar = document.getElementById("iniciar");
-                var btfin = document.getElementById("finalizar");
-                ctx2.clearRect(0,0,500,50);
-                ctx2.font = "30px Arial";
-                ctx2.fillStyle = "grey";
-                ctx2.strokeText("Planetario",150,30,100,50);
-                sol.src = "png/sol.png";
-                tierra.src = "png/tierra.png";
-
-                sol.onload = function(){
-                    ctx2.drawImage(sol,150,150,100,100);
-                }
-
-                tierra.onload = function(){
-                    ctx2.arc(200,200,125,0,2*Math.PI);
-                    ctx2.strokeStyle = "grey";
-                    ctx2.stroke();
-                    ctx2.drawImage(tierra,175,300,50,50);
-                }
-
-                btiniciar.addEventListener("click",function(){
-                    valor = window.requestAnimationFrame(draw);
-                });
-
-                btfin.addEventListener("click", function(){
-                    window.cancelAnimationFrame(valor);
-                });
-
-            }
-
             if(canvas.getContext){
                 var ctx = canvas.getContext("2d");
-                
-                setTimeout(function(){
+                setInterval(function(){
                     const img = new Image();
                     img.src = imagenes[numImagen];
                     
@@ -65,8 +47,67 @@
                             numImagen++;
                         } 
                     };
-                    window.requestAnimationFrame(draw);
                 },2000);
+            }
+
+            //Se crea el eventListener del boton inciar
+            btiniciar.addEventListener("click",rotarTierra);
+            //Se crea el eventListener del boton fin
+            btfin.addEventListener("click",pararTierra);
+        }
+
+        function rotarTierra(){
+            //Se ubica el canvas del sol y la tierra
+            const canvas2 = document.getElementById('rotarTierra');
+            //El ancho y alto del canvas
+            let width = 500;
+            let height = 500;
+            //Se crea el sol
+            var sol = new Image();
+            //El eje x e y del canvas
+            var canvasEjeX = 250;
+            var canvasEjeY = 250;
+            //La variable valor para guardar el requestFrameAnimation
+            var valor;
+            //Se comprueba el contexto del canvas
+            if(canvas2.getContext){
+                //Se coge el contexto
+                var ctx2 = canvas2.getContext("2d");
+                //Se crea un rectangulo
+                ctx2.strokeRect(0, 0, width, height);
+                //Se crea la imagen de la tierra
+                const tierra = new Image();
+                //Se busca la imagen del sol y la tierra
+                sol.src = "png/sol.png";
+                tierra.src = "png/tierra.png";
+                //Se carga la imagen del sol
+                sol.onload = function(){
+                    //Se limpia el texto
+                    ctx2.clearRect(150,1,100,50);
+                    //Se pone un texto de 30px de color gris
+                    ctx2.font = "30px Arial";
+                    ctx2.fillStyle = "grey";
+                    //Se pone el texto planetario
+                    ctx2.strokeText("Planetario",150,30,100,50);
+                    //se crea la circumferencia de la tierra y el sol
+                    ctx2.arc(200,200,125,0,2*Math.PI);
+                    //Se colorea de color gris
+                    ctx2.strokeStyle = "grey";
+                    ctx2.stroke();
+                    //Se dibuja la imagen del sol
+                    ctx2.drawImage(sol,150,150,100,100);
+                }
+                
+                ctx2.save();
+                ctx2.translate(250,250);
+                let x = 0;
+                //tierra.onload = function(){
+                    ctx2.rotate(x * Math.PI / 180);
+                    ctx2.drawImage(tierra,300,175,50,50);
+                //}
+                x++;
+                ctx2.restore();
+
             }
         }
     </script>

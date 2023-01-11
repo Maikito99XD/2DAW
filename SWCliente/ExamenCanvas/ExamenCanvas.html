@@ -1,0 +1,191 @@
+<html>
+    <head>
+        <script>
+            //La variable ctx2 es una variable global para controlar el canvas
+            var ctx2 = "";
+            //Las variables x e y son variables las cuales nos servirán como posición por default
+            //En caso de que el usuario le haya dado al stop
+            var x = 50;
+            var y = 50;
+            //Variable para el radio
+            var radio = 30;
+            //Variables para el ancho y alto del canvas
+            var width = 600;
+            var height = 300;
+            //La variable valor para poder saber el valor del requestAnimationFrame
+            var valor;
+            //Posicion de la pelota en el eje X e Y según el usuario
+            var ubicacionPelotaX;
+            var ubicacionPelotaY;
+            //haLlegado es una variable para el rebote
+            var haLlegado = false;
+            //Esta variable es para medir la velocidad que tendrá la pelota
+            var velocidad = 2;
+            //La función draw es para tener control de todos los listeners y crear las cosas
+            function draw(){
+                //Ubicaremos el canvas 
+                const canvas = document.getElementById("pelota");
+                //Cogeremos el context del canvas
+                var ctx = canvas.getContext('2d');
+                //Ubicaremos en el documento cada uno de los botones
+                var btnIzq = document.getElementById("izq");
+                var btnDer = document.getElementById("der");
+                var btnArriba = document.getElementById("arriba");
+                var btnAbajo = document.getElementById("abajo");
+                var btnStop = document.getElementById("stop");
+                //Guardamos el canvas en la variable global ctx2
+                ctx2 = ctx;
+                //Comprobamos el contexto del canvas
+                if(canvas.getContext){
+                    //Creamos un rectangulo con las medidas del canvas
+                    ctx.strokeRect(0,0,600,300);
+                    //Recogeremos los dobles click del usuario y llamaremos a la función posicion
+                    window.addEventListener('dblclick',posicion);
+                    //Crearemos un eventListener para cada boton cada vez que 
+                    //haga click iremos a la función correspondiente
+                    btnIzq.addEventListener('click',moverPelotaIzq);
+                    btnDer.addEventListener('click',moverPelotaDer);
+                    btnArriba.addEventListener('click',moverPelotaArriba);
+                    btnAbajo.addEventListener('click',moverPelotaAbajo);
+                    btnStop.addEventListener('click',pararPelota);
+                    //Este eventListener es para controlar las flechas del teclado
+                    document.addEventListener('keydown',(event) => {
+                        //Donde mediante el codigo de cada tecla iremos a su función correspondiente
+                        if(event.keyCode === 37){
+                            moverPelotaIzq();
+                        }else if(event.keyCode === 38){
+                            moverPelotaArriba();
+                        }else if(event.keyCode === 39){
+                            moverPelotaDer();
+                        }else {
+                            moverPelotaAbajo();
+                        }
+                    });
+                }
+            }
+            //La función posicion es para saber donde ha soltado la pelota el usuario
+            function posicion(){
+                //Recogeremos la posicion X e Y que será la cual ha hecho doble click el usuario
+                ubicacionPelotaX = this.event.clientX;
+                ubicacionPelotaY = this.event.clientY;
+                //Lo guardaremos en nuestras variables
+                y = ubicacionPelotaY;
+                x = ubicacionPelotaX;
+                //Crearemos la pelota
+                creaPelota();
+            }
+
+            function creaPelota(){
+                //rebotePelota es para saber el valor del rebote de la pelota
+                var rebotePelota = 0;
+                //Empezamos a limpiar y limpiamos todo el canvas
+                ctx2.beginPath();
+                ctx2.clearRect(1,1,598,298);
+                //Creamos y rellenamos la pelota
+                ctx2.arc(x,y,radio,0,2*Math.PI);
+                ctx2.fill();
+                //Crearemos la animación
+                valor = window.requestAnimationFrame(creaPelota);
+                //En caso de tocar el fondo pararemos
+                if(y >= (height - 31)){
+                    /*
+                    ctx2.beginPath();
+                    ctx2.clearRect(1,1,598,298);
+                    ctx2.arc(x,y,radio,0,2*Math.PI);
+                    ctx2.fill();
+                    y -= rebotePelota;
+                    rebotePelota -= velocidad;
+                    */
+                //En caso contrario seguirá la animación
+                }else{
+                    y += velocidad;
+                }
+            
+            }
+
+            function moverPelotaIzq(){
+                //Cuando la X sea mayor a 0 eso significa que el usuario no se ha pasado del canvas
+                if(x > 0){
+                    //Empezaremos a dibujar
+                    ctx2.beginPath();
+                    //Le quitaremos 10 a la x que será donde se moverá la pelota
+                    x -= 10;
+                    //Limpiaremos la anterior pelota
+                    ctx2.clearRect(1,1,598,298);
+                    //Crearemos la nueva pelota 
+                    ctx2.arc(x,y,radio,0,2*Math.PI);
+                    //La rellenaremos
+                    ctx2.fill();
+                //En caso de que se salga del canvas, le mostraremos el siguiente mensaje
+                }else{
+                    alert("No se puede ir más a la izquierda");
+                }
+                
+            }
+
+            function moverPelotaDer(){
+                //Cuando la X sea menor al width del canvas haremos los siguiente
+                if(x < width){
+                    
+                    ctx2.beginPath();
+                    //Le sumamos 10 a la X
+                    x += 10;
+                    //Limpiamos la anterior pelota
+                    ctx2.clearRect(1,1,598,298);
+                    //Creamos la siguiente pelota y la rellenamos
+                    ctx2.arc(x,y,radio,0,2*Math.PI);
+                    ctx2.fill();
+                //En caso de que se pase le mostraremos el siguiente mensaje
+                }else{
+                    alert("No se puede ir más a la derecha");
+                }
+            }
+
+            function moverPelotaArriba(){
+                //Empezamos a pintar
+                ctx2.beginPath();
+                //Le añadimos 5 al radio
+                radio += 5;
+                //Limpiamos la anterior pelota
+                ctx2.clearRect(1,1,598,298);
+                //Creamos y rellenamos la nueva pelota
+                ctx2.arc(x,y,radio,0,2*Math.PI);
+                ctx2.fill();
+            }
+
+            function moverPelotaAbajo(){
+                //Empezamos a pintar
+                ctx2.beginPath();
+                //Le quitamos 5 al radio
+                radio -= 5;
+                //Limpiamos la anterior pelota
+                ctx2.clearRect(1,1,598,298);
+                //Creamos y rellenamos la siguiente pelota
+                ctx2.arc(x,y,radio,0,2*Math.PI);
+                ctx2.fill();
+            }
+
+            function pararPelota(){
+                //En caso de que tengamos un valor cancelaremos la animación
+                if(valor){
+                    window.cancelAnimationFrame(valor);
+                //En caso de que no tengamos ningún valor osea esté en false crearemos una nueva animación
+                }else{
+                    valor = window.requestAnimationFrame(creaPelota);
+                }
+            }
+        </script>
+        <style>
+           
+        </style>
+    </head>
+    <body onload="draw();">
+        <canvas id="pelota" width="600" height="300"></canvas>
+        <label>Botones</label>
+        <button value="izq" id="izq"><img src="./images/izquierda.jpg" height="30" width="30"></button>
+        <button value="der" id="der"><img src="./images/derecha.png"  height="30" width="30"></button>
+        <button value="arriba" id="arriba"><img src="./images/arriba.png"  height="30" width="30"></button>
+        <button value="abajo" id="abajo"><img src="./images/abajo.png"  height="30" width="30"></button>
+        <button value="stop" id="stop"><img src="./images/stop.png"  height="30" width="30"></button>
+    </body>
+</html>
