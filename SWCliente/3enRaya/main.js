@@ -46,8 +46,6 @@ function dragLeave(e) {
 }
 function drop(e) {
 
-    //if(localStorage.setItem('victoriasJugadorX', victoriasJugadorA) === null)
-
     if(compruebaCasillaOcupada(e)){
         e.target.classList.remove('drag-over');
         const id = e.dataTransfer.getData('text/plain');
@@ -107,7 +105,6 @@ function comenzar(){
     if(localStorage.getItem("victoriasJugadorB") == null ){
         localStorage.setItem("victoriasJugadorB",0);
         victoriasJugadorB = localStorage.getItem('victoriasJugadorB');
-        console.log(localStorage.getItem("victoriasJugadorB"));
     }else{
         victoriasJugadorB = localStorage.getItem('victoriasJugadorB');
     }
