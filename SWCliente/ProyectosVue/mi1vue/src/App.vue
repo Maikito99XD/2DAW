@@ -57,6 +57,8 @@ const blockBoton = computed(() => {
   }
 });
 
+const message = ref('');
+
 </script>
 <template>
 <h1>Hola {{ name.toUpperCase() }}.</h1>
@@ -91,7 +93,10 @@ const blockBoton = computed(() => {
   <li v-for="(item, index) in arrayNumeros" :key="index">
     {{ item }}
   </li>
-</ul>
+</ul><br/>
+
+<p>El mensaje es: {{ message }}</p>
+<input v-model="message" placeholder="Escribe" />
 
 </template>
 <style>

@@ -1,0 +1,100 @@
+
+#Mi_borde{border:8px solid #000;
+    max-width: 400px !important;
+    padding:1%;
+    text-align: center;
+    margin-left: 15px;
+    margin-right: auto;
+	float: left;
+}
+
+#Jugador_1{
+	border:5px solid #000;
+    max-width: 150px !important;
+    padding:1%;
+	text-align: center;
+    margin-right: auto;
+	margin-left: 24%;
+	float: left;
+}
+
+#Jugador_2{
+	border:5px solid #000;
+    max-width: 200px !important;
+    padding:1%;
+	text-align: center;
+    margin-left: 15px;
+	margin-right: 20%;
+	float: left;
+}
+
+#turnoJugadorImg{
+	height: 20px;
+    width: 20px;
+}
+
+input[type="button"].num{
+	font-size: 90px solid;
+	border:2px solid #000;
+	cursor: pointer;
+}
+
+img{
+	width: 65px;
+	height: 65px;
+	border: 1px grey;
+}
+
+form{
+ background-color:white;
+ text-align: center;
+}
+
+
+input[type="button"]{
+	font-size: 28px solid;
+	width:60px;
+	height: 60px;
+	margin-bottom: 5px;
+}
+
+body{
+	background-color:#f1f1f1;
+}
+
+.drop-targets {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.turnoJugador{
+	height: 40px;
+    width: 40px;
+    border: solid 3px #000;
+	display: inline;
+}
+
+.box {
+    height: 70px;
+    width: 70px;
+    border: solid 3px #000;
+
+    /* align items in the box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.drag-over {
+    border: dashed 3px red;
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tres en Raya con Eventos</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+</head> 
+<body>
+
+<div id="Jugador_1">
+	<h2 id="victoriasA">Victorias A: 0</h2>
+	<img id="primeraX" draggable="true" src="imagenes/x.jpg"><br/>
+	<img id="segundaX" draggable="true" src="imagenes/x.jpg"><br/>
+	<img id="terceraX" draggable="true" src="imagenes/x.jpg"><br/>
+</div>
+ 
+<div id="Mi_borde">
+ 
+	<h2>Juego 3 en RAYA</h2>
+	<h2>¡¡CON DRAG AND DROP!!</h2> 
+    <h2>Turno Jugador: 
+		<div class="turnoJugador"><img id="turnoJugadorImg" draggable="false" src="imagenes/x.jpg"></div>
+	</h2>
+	
+	<form name="f1"><br/>
+		<div class="drop-targets">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div><br/>
+		<div class="drop-targets">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div><br/>
+		<div class="drop-targets">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div><br/>
+	</form>
+</div>
+
+<div id="Jugador_2">
+	<h2 id="victoriasB">Victorias B: 0</h2>
+	<img id="primeraO" draggable="true" src="imagenes/o.jpg"><br/>
+	<img id="segundaO" draggable="true" src="imagenes/o.jpg"><br/>
+	<img id="terceraO" draggable="true" src="imagenes/o.jpg"><br/>
+</div>
+</body>
+
+<script src="main.js"></script>
+</html>
