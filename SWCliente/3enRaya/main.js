@@ -1,6 +1,6 @@
 const imagenes = document.querySelectorAll('img');
-let victoriasJugadorA = 0;
-let victoriasJugadorB = 0;
+let victoriasJugadorA;
+let victoriasJugadorB;
 let turnoJugador = 0;
 let miWindow;
 var configuracion_ventana = "left=100,top=200,width=500,height=200"
@@ -46,7 +46,7 @@ function dragLeave(e) {
 }
 function drop(e) {
 
-    if(localStorage.setItem('victoriasJugadorX', victoriasJugadorA) === null)
+    //if(localStorage.setItem('victoriasJugadorX', victoriasJugadorA) === null)
 
     if(compruebaCasillaOcupada(e)){
         e.target.classList.remove('drag-over');
@@ -97,8 +97,21 @@ function compruebaCasillaOcupada(e){
 
 
 function comenzar(){
-    victoriasJugadorA = 0;
-    victoriasJugadorB = 0;
+    if(localStorage.getItem("victoriasJugadorA") == null ){
+        localStorage.setItem("victoriasJugadorA",0);
+        victoriasJugadorA = localStorage.getItem("victoriasJugadorA");
+    }else{
+        victoriasJugadorA = localStorage.getItem("victoriasJugadorA");
+    }
+
+    if(localStorage.getItem("victoriasJugadorB") == null ){
+        localStorage.setItem("victoriasJugadorB",0);
+        victoriasJugadorB = localStorage.getItem('victoriasJugadorB');
+        console.log(localStorage.getItem("victoriasJugadorB"));
+    }else{
+        victoriasJugadorB = localStorage.getItem('victoriasJugadorB');
+    }
+
     turnoJugador = 0;
 
     cambiarImagenTurnoJugador();
@@ -131,6 +144,7 @@ function comprobarVictoriaJugadorB(){
     boxes[1].hasChildNodes() && boxes[1].firstElementChild.id.endsWith("O") &&
     boxes[2].hasChildNodes() && boxes[2].firstElementChild.id.endsWith("O")){
         victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
         mensajeVictoriaJugador("B");
         calculaVictoriasJugadores();
     }else if(
@@ -138,6 +152,7 @@ function comprobarVictoriaJugadorB(){
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("O") &&
         boxes[5].hasChildNodes() && boxes[5].firstElementChild.id.endsWith("O")){
             victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
     }else if(
@@ -145,6 +160,7 @@ function comprobarVictoriaJugadorB(){
         boxes[7].hasChildNodes() && boxes[7].firstElementChild.id.endsWith("O") &&
         boxes[8].hasChildNodes() && boxes[8].firstElementChild.id.endsWith("O")){
             victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
     }else if(
@@ -152,6 +168,7 @@ function comprobarVictoriaJugadorB(){
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("O") &&
         boxes[8].hasChildNodes() && boxes[8].firstElementChild.id.endsWith("O")){
             victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
     }else if(
@@ -159,6 +176,7 @@ function comprobarVictoriaJugadorB(){
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("O") &&
         boxes[6].hasChildNodes() && boxes[6].firstElementChild.id.endsWith("O")){
             victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
     }else if(
@@ -166,6 +184,7 @@ function comprobarVictoriaJugadorB(){
         boxes[3].hasChildNodes() && boxes[3].firstElementChild.id.endsWith("O") &&
         boxes[6].hasChildNodes() && boxes[6].firstElementChild.id.endsWith("O")){
             victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
     }else if(
@@ -174,6 +193,7 @@ function comprobarVictoriaJugadorB(){
         boxes[7].hasChildNodes() && boxes[7].firstElementChild.id.endsWith("O")
     ){
         victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
         mensajeVictoriaJugador("B");
         calculaVictoriasJugadores();
     }else if(
@@ -182,6 +202,7 @@ function comprobarVictoriaJugadorB(){
         boxes[8].hasChildNodes() && boxes[8].firstElementChild.id.endsWith("O")
     ){
         victoriasJugadorB++;
+        localStorage.setItem("victoriasJugadorB",victoriasJugadorB++);
         mensajeVictoriaJugador("B");
         calculaVictoriasJugadores();
     }
@@ -193,6 +214,7 @@ function comprobarVictoriaJugadorA(){
         boxes[1].hasChildNodes() && boxes[1].firstElementChild.id.endsWith("X") &&
         boxes[2].hasChildNodes() && boxes[2].firstElementChild.id.endsWith("X")){
         victoriasJugadorA++;
+        localStorage.setItem("victoriasJugadorA",victoriasJugadorA++);
         mensajeVictoriaJugador("A");
         calculaVictoriasJugadores();
     }else if(
@@ -200,6 +222,7 @@ function comprobarVictoriaJugadorA(){
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("X") &&
         boxes[5].hasChildNodes() && boxes[5].firstElementChild.id.endsWith("X")){
             victoriasJugadorA++;
+            localStorage.setItem("victoriasJugadorA",victoriasJugadorA++);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
     }else if(
@@ -207,6 +230,7 @@ function comprobarVictoriaJugadorA(){
         boxes[7].hasChildNodes() && boxes[7].firstElementChild.id.endsWith("X") &&
         boxes[8].hasChildNodes() && boxes[8].firstElementChild.id.endsWith("X")){
             victoriasJugadorA++;
+            localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
     }else if(
@@ -214,6 +238,7 @@ function comprobarVictoriaJugadorA(){
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("X") &&
         boxes[8].hasChildNodes() && boxes[8].firstElementChild.id.endsWith("X")){
             victoriasJugadorA++;
+            localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
     }else if(
@@ -221,6 +246,7 @@ function comprobarVictoriaJugadorA(){
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("X") &&
         boxes[6].hasChildNodes() && boxes[6].firstElementChild.id.endsWith("X")){
             victoriasJugadorA++;
+            localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
     }else if(
@@ -228,6 +254,7 @@ function comprobarVictoriaJugadorA(){
         boxes[3].hasChildNodes() && boxes[3].firstElementChild.id.endsWith("X") &&
         boxes[6].hasChildNodes() && boxes[6].firstElementChild.id.endsWith("X")){
             victoriasJugadorA++;
+            localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
         mensajeVictoriaJugador("A");
         calculaVictoriasJugadores();
     }else if(
@@ -236,6 +263,7 @@ function comprobarVictoriaJugadorA(){
         boxes[7].hasChildNodes() && boxes[7].firstElementChild.id.endsWith("X")
     ){
         victoriasJugadorA++;
+        localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
         mensajeVictoriaJugador("A");
         calculaVictoriasJugadores();
     }else if(
@@ -244,6 +272,7 @@ function comprobarVictoriaJugadorA(){
         boxes[8].hasChildNodes() && boxes[8].firstElementChild.id.endsWith("X")
     ){
         victoriasJugadorA++;
+        localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
         mensajeVictoriaJugador("A");
         calculaVictoriasJugadores();
     }
