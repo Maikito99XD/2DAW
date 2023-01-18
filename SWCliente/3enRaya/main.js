@@ -176,6 +176,12 @@ function comprobar(){
 }
 
 function comprobarVictoriaJugadorB(){
+    /*
+    Empezamos con las opciones de victoria en horizontal
+    En caso de que las casillas 0, 1, 2 tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     if(boxes[0].hasChildNodes() && boxes[0].firstElementChild.id.endsWith("O") &&
     boxes[1].hasChildNodes() && boxes[1].firstElementChild.id.endsWith("O") &&
     boxes[2].hasChildNodes() && boxes[2].firstElementChild.id.endsWith("O")){
@@ -183,6 +189,12 @@ function comprobarVictoriaJugadorB(){
         localStorage.setItem("victoriasJugadorB",victoriasJugadorB);
         mensajeVictoriaJugador("B");
         calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas de abajo osea las casillas 3, 4, 5 también en
+    horizontal, tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     }else if(
         boxes[3].hasChildNodes() && boxes[3].firstElementChild.id.endsWith("O") &&
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("O") &&
@@ -191,6 +203,12 @@ function comprobarVictoriaJugadorB(){
         localStorage.setItem("victoriasJugadorB",victoriasJugadorB);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas de abajo osea las casillas 6, 7, 8 también en
+    horizontal, tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     }else if(
         boxes[6].hasChildNodes() && boxes[6].firstElementChild.id.endsWith("O") &&
         boxes[7].hasChildNodes() && boxes[7].firstElementChild.id.endsWith("O") &&
@@ -199,6 +217,12 @@ function comprobarVictoriaJugadorB(){
         localStorage.setItem("victoriasJugadorB",victoriasJugadorB);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
+    /*
+    Aquí empezamos con las posibles victorias en diagonal
+    En este caso es lo mismo solo que las casillas 0, 4, 8 tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     }else if(
         boxes[0].hasChildNodes() && boxes[0].firstElementChild.id.endsWith("O") &&
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("O") &&
@@ -207,6 +231,11 @@ function comprobarVictoriaJugadorB(){
         localStorage.setItem("victoriasJugadorB",victoriasJugadorB);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas 2, 4, 6 tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     }else if(
         boxes[2].hasChildNodes() && boxes[2].firstElementChild.id.endsWith("O") &&
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("O") &&
@@ -215,6 +244,12 @@ function comprobarVictoriaJugadorB(){
         localStorage.setItem("victoriasJugadorB",victoriasJugadorB);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
+    /*
+    Aquí ya empezamos a ver las posibilidades de victoria en vertical
+    En este caso es lo mismo solo que las casillas 0, 3, 6 tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     }else if(
         boxes[0].hasChildNodes() && boxes[0].firstElementChild.id.endsWith("O") &&
         boxes[3].hasChildNodes() && boxes[3].firstElementChild.id.endsWith("O") &&
@@ -223,6 +258,11 @@ function comprobarVictoriaJugadorB(){
         localStorage.setItem("victoriasJugadorB",victoriasJugadorB);
             mensajeVictoriaJugador("B");
             calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas 1, 4, 7 tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     }else if(
         boxes[1].hasChildNodes() && boxes[1].firstElementChild.id.endsWith("O") &&
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("O") &&
@@ -232,6 +272,11 @@ function comprobarVictoriaJugadorB(){
         localStorage.setItem("victoriasJugadorB",victoriasJugadorB);
         mensajeVictoriaJugador("B");
         calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas 2, 5, 8 tengan nodos hijos y su id acabe en O se sumará
+    una victoria al jugador 2 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 2 
+    */
     }else if(
         boxes[2].hasChildNodes() && boxes[2].firstElementChild.id.endsWith("O") &&
         boxes[5].hasChildNodes() && boxes[5].firstElementChild.id.endsWith("O") &&
@@ -245,6 +290,12 @@ function comprobarVictoriaJugadorB(){
 }
 
 function comprobarVictoriaJugadorA(){
+     /*
+    Empezamos con las opciones de victoria en horizontal
+    En caso de que las casillas 0, 1, 2 tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1
+    */
     if(
         boxes[0].hasChildNodes()&& boxes[0].firstElementChild.id.endsWith("X") && 
         boxes[1].hasChildNodes() && boxes[1].firstElementChild.id.endsWith("X") &&
@@ -253,6 +304,12 @@ function comprobarVictoriaJugadorA(){
         localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
         mensajeVictoriaJugador("A");
         calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas de abajo osea las casillas 3, 4, 5 también en
+    horizontal, tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1 
+    */
     }else if(
         boxes[3].hasChildNodes() && boxes[3].firstElementChild.id.endsWith("X") && 
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("X") &&
@@ -261,6 +318,12 @@ function comprobarVictoriaJugadorA(){
             localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas de abajo osea las casillas 6, 7, 8 también en
+    horizontal, tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1
+    */
     }else if(
         boxes[6].hasChildNodes() && boxes[6].firstElementChild.id.endsWith("X") && 
         boxes[7].hasChildNodes() && boxes[7].firstElementChild.id.endsWith("X") &&
@@ -269,6 +332,12 @@ function comprobarVictoriaJugadorA(){
             localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
+    /*
+    Aquí empezamos con las posibles victorias en diagonal
+    En este caso es lo mismo solo que las casillas 0, 4, 8 tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1
+    */
     }else if(
         boxes[0].hasChildNodes() && boxes[0].firstElementChild.id.endsWith("X") && 
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("X") &&
@@ -277,6 +346,11 @@ function comprobarVictoriaJugadorA(){
             localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas 2, 4, 6 tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1
+    */
     }else if(
         boxes[2].hasChildNodes() && boxes[2].firstElementChild.id.endsWith("X") &&
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("X") &&
@@ -285,6 +359,12 @@ function comprobarVictoriaJugadorA(){
             localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
             mensajeVictoriaJugador("A");
             calculaVictoriasJugadores();
+    /*
+    Aquí ya empezamos a ver las posibilidades de victoria en vertical
+    En este caso es lo mismo solo que las casillas 0, 3, 6 tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1
+    */
     }else if(
         boxes[0].hasChildNodes() && boxes[0].firstElementChild.id.endsWith("X") &&
         boxes[3].hasChildNodes() && boxes[3].firstElementChild.id.endsWith("X") &&
@@ -293,6 +373,11 @@ function comprobarVictoriaJugadorA(){
             localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
         mensajeVictoriaJugador("A");
         calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas 1, 4, 7 tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1
+    */
     }else if(
         boxes[1].hasChildNodes() && boxes[1].firstElementChild.id.endsWith("X") &&
         boxes[4].hasChildNodes() && boxes[4].firstElementChild.id.endsWith("X") &&
@@ -302,6 +387,11 @@ function comprobarVictoriaJugadorA(){
         localStorage.setItem("victoriasJugadorA",victoriasJugadorA);
         mensajeVictoriaJugador("A");
         calculaVictoriasJugadores();
+    /*
+    En este caso es lo mismo solo que las casillas 2, 5, 8 tengan nodos hijos y su id acabe en X se sumará
+    una victoria al jugador 1 se guardará en el localStorage, se abrirá un mensaje de
+    victoria y se escribirá en la página las victorias totales que tiene el jugador 1
+    */
     }else if(
         boxes[2].hasChildNodes() && boxes[2].firstElementChild.id.endsWith("X") &&
         boxes[5].hasChildNodes() && boxes[5].firstElementChild.id.endsWith("X") &&
@@ -313,7 +403,8 @@ function comprobarVictoriaJugadorA(){
         calculaVictoriasJugadores();
     }
 }
-
+//La función mensajeVictoriaJugador es para cuando un jugador X o O ganen una ronda salga el 
+//mensaje de que ha ganado
 function mensajeVictoriaJugador(jugador){
     miWindow = window.open("", "", configuracion_ventana);
     miWindow.document.write("<h1>GANADOR JUGADOR "+jugador+"</h1>");
@@ -321,11 +412,15 @@ function mensajeVictoriaJugador(jugador){
     miWindow.close();
     }, 1000);
 }
-
+//Función para cambiar la imagen del turno de cada jugador
 function cambiarImagenTurnoJugador(){
+    //En caso de que el turno del jugador sea 0 osea el jugador 1
     if(turnoJugador == 0){
+        //Recogeremos el elemento img del html y le pondremos la imagen X
         document.getElementById("turnoJugadorImg").src="imagenes/x.jpg";
+    //En caso de que sea el turno del jugador 2
     }else{
+        //Recogeremos el elemento img del html y le pondremos la imagen O
         document.getElementById("turnoJugadorImg").src="imagenes/o.jpg";
     }
 }
