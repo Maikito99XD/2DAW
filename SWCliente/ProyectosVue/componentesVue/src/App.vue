@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import ButtonCounter from './components/ButtonCounter.vue';
 import BlogPost from './components/BlogPost.vue';
 import PogPost from './components/PogPost.vue';
+import NumPost from './components/NumPost.vue';
 /*
 const posts = ref([
 { id: 1, titulo: "Post 01", contenido: "Descripcion del post 01" },
@@ -16,15 +17,17 @@ const fijarFavorito = (titulo) => { //recibo el valor del Post favorito con el B
 }
 
 
-const selected = ref('');
-const inicio = ref(0);
-const fin = ref(); 
-const postxpag = ref();
+let inicio = ref(0);
+let fin = ref(); 
+let postxpag = 10;
+let error = ref();
+let cargando = ref();
 
-function cambiotam(){
+function cambiotam(postxpags){
+  postxpag = postxpags;
   inicio.value = 0;
-  fin.value = parseInt(selected.value);
-  postxpag.value = parseInt(selected.value);
+  fin.value = postxpag;
+
 }
 
 const next=()=>{
@@ -33,55 +36,59 @@ fin.value = parseInt(fin.value) + parseInt(postxpag);
 }
 
 const prev=()=>{
-inicio.value = inicio.value - postxpag;
-fin.value = fin.value - postxpag;
+inicio.value = parseInt(inicio.value) - parseInt(postxpag);
+fin.value = parseInt(fin.value) - parseInt(postxpag);
 }
 
 const posts = ref([]); //Posts
 fetch("https://jsonplaceholder.typicode.com/posts")
 .then((res) => res.json())
 .then((data) => (posts.value = data))
+.catch((err)=> error.value= err) //Si error lo guardamos en ‘error’
+.finally(()=>cargando.value=false); //Al terminar cargando=false
 </script>
 
 <template>
-  <h1>COMPONENTES</h1><br/>
-  <h2>Nº Post por Página: {{ selected }}</h2><br/>
-  <select v-model="selected" @change="cambiotam">
-    <option>10</option>
-    <option>15</option>
-    <option>20</option>
-  </select><br/>
-    <!--
-  <ButtonCounter />
-  <ButtonCounter />
-  <BlogPost
-    v-for="post in posts" :key="post.id"
-    :id="post.id"
-    :titulo="post.titulo"
-    :contenido="post.contenido"
-    @fijarFavoritoNombre="fijarFavorito"
-    /> --><!-- 'Sincronizo' componentes con el evento personalizado 
+  <h2 v-if="cargando">Cargando Datos.</h2>
+  <h2 v-else-if="error">Error Cargando Datos.</h2>
+  <div v-else>
+    <h1>COMPONENTES</h1><br/>
+    <h2>Nº Post por Página: {{ postxpag }}</h2><br/>
+    <NumPost
+    @cambiotam = cambiotam>
+      
+    </NumPost><br/>
+      <!--
+    <ButtonCounter />
+    <ButtonCounter />
+    <BlogPost
+      v-for="post in posts" :key="post.id"
+      :id="post.id"
+      :titulo="post.titulo"
+      :contenido="post.contenido"
+      @fijarFavoritoNombre="fijarFavorito"
+      /> --><!-- 'Sincronizo' componentes con el evento personalizado 
+      <h2>Mi Post Favorito: {{ miFavorito }}</h2>
+  -->
+    <PogPost  
+    @next="next" 
+    @prev ="prev"
+    :inicio = "inicio"
+    :fin = "fin"
+    :tampost="posts.length"
+    >
     <h2>Mi Post Favorito: {{ miFavorito }}</h2>
--->
-  <PogPost  
-  @next="next" 
-  @prev ="prev"
-  :inicio = "inicio"
-  :fin = "fin"
-  :tampost="posts.length"
-  >
-  <h2>Mi Post Favorito: {{ miFavorito }}</h2>
-  </PogPost>
+    </PogPost>
 
-  <BlogPost
-    v-for="post in posts.slice(inicio,fin)"
-    :key="post.id"
-    :id="post.id"
-    :titulo="post.title"
-    :contenido="post.body"
+    <BlogPost
+      v-for="post in posts.slice(inicio,fin)"
+      :key="post.id"
+      :id="post.id"
+      :titulo="post.title"
+      :contenido="post.body"
 
-/>
-
+  />
+</div>
 </template>
 
 <style scoped>
