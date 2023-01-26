@@ -15,4 +15,5 @@ console.log(error);
 
 <template>
 <h1>Nombre Pokemon: {{ $route.params.nombre }}</h1>
+<h1>{{ $route.params.sprites }}</h1>
 </template>
