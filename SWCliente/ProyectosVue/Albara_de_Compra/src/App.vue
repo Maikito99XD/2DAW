@@ -41,6 +41,7 @@ function eliminaDatos(datoElimnar){
   //Con splice le decimos la posicion del producto en la matriz y cuantos queremos borrar
   matrizProductes.value.splice(datoElimnar,1);
 }
+
 </script>
 
 <template>

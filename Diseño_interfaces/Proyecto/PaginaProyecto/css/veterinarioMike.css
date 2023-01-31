@@ -1,8 +1,8 @@
+
+
 .topnav {
     overflow: hidden;
-    background-color: #39E66A;
-    height: 50px;
-    width: 100%;
+    background-color: #40D1E3;
   }
   
 .topnav a {
@@ -51,6 +51,7 @@
     text-align: left;
   }
 }
+  
 
 /* Para el ancho y alto de las imagenes. Modificalo a gusto =)  */
 .carousel-inner > .item > img,
@@ -72,7 +73,11 @@
   height: 95vh;
   
 }
-#telefonoVeterinarioCabecera{
-  float: right;
-}
 
+footer {
+  width: 100%;
+  background-color: #212529;
+  color: white;
+  text-align: center;
+  padding: 1%;
+}
