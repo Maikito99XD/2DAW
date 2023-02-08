@@ -1,0 +1,120 @@
+<html>
+    <head>
+      <title>Canvas tutorial</title>
+      <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EkH4FjDshOmsEJ1oPo4Fb20k9YrH7I5laKNS1xZKdiCCq0oQyQg2CLO0Wi2Y3n_nwJoTqvOvJmZ6ejoSvyC7bZQq8_EcF_eJ-coByXZsOM3-XFPqc4h2rIMhHr0JdSsHwWXyMwTAlj-F71rztXYfWf6_fNehHriPMM_lh9I1NC5tjFAyMGfjiOK9ChwseXxU" charset="UTF-8"></script><script type="text/javascript">
+        /*******VARIABLES GLOBALES*******/ 
+        
+        let cont = 0;//contador de imagenes 
+        var imagen = new Image();//creamos la imagen
+        //Array de Imagenes de los planetas
+        var imagenes = ["./imagenes/jupiter.jpg","./imagenes/marte.jpg","./imagenes/mercurio.jpg","./imagenes/neptuno.jpg","./imagenes/saturno.jpg","./imagenes/tierra.jpg","./imagenes/urano.jpg","./imagenes/venus.jpg"];
+        
+        var p = document.createElement("p");//creamos el elemento texto
+        //Array con los nombres de los planetas
+        var nomPlaneta = ["Jupiter","Marte","Mercurio","Neptuno","Saturno","Tierra","Urano","Venus"];
+
+        var valor;//valor que se asigna a la animación.
+              
+        function draw(){
+          const canvas = document.getElementById('imagenes'); //variables para imprimir en los canvas seleccionados.
+          
+          const ctx = canvas.getContext('2d');//canvas de las imagenes
+          
+          //escribimos antes del canva el nombre de cada planeta.
+          document.body.insertBefore(p, canvas);
+          //creamos el interval de tiempo del carussel de imagenes 
+          setTimeout(() => {
+            
+            //añadimos la imagen a partir del array de imagenes.
+            imagen.src = imagenes[cont];
+            //añadimos el texto del array de nombres de planetas 
+            p.innerHTML = nomPlaneta[cont];
+
+            imagen.onload = function() {
+              ctx.clearRect(0,0,250,250);
+              ctx.drawImage(imagen,0,0,250,250);
+
+              if (cont >= (imagenes.length-1)) {
+                cont = 0;
+              } else {
+                cont++;
+              }
+            };
+            window.requestAnimationFrame(draw);
+          }, 2000); 
+          drawSolar();//llamamos a la funcion para que solamente pinte las imagenes y el texto
+          iniciar.addEventListener('click',inicio);
+          parar.addEventListener('click', stop);//evento para captar los botones
+        }
+
+        // Cargar las imágenes del Sol y la Tierra
+        const sol = new Image();
+        sol.src = 'png/sol.png';
+
+        const tierra = new Image();
+        tierra.src = 'png/tierra.png';
+        
+        // Declarar una variable para el ángulo de rotación de la Tierra
+        let angle = 0;
+        let posi = 0.01;
+
+        function drawSolar() {
+          const canva = document.getElementById("planetarios");
+          const ctx2  = canva.getContext('2d');//canva de los planetas 
+
+          // Declarar variables para la posición y el radio del Sol y la Tierra
+          let x1 = canva.width / 2;
+          let y1 = canva.height / 2;
+          let r1 = 70;
+
+          let x2 = canva.width / 2 + 100;
+          let y2 = canva.height / 2;
+          let r2 = 80;
+          ctx2.clearRect(0, 0, canva.width, canva.height);// Borrar la pantalla
+
+          // Dibujamos la órbita del Sol
+          ctx2.beginPath();
+          ctx2.arc(x1, y1, r1 + r2, 0, 2 * Math.PI);
+          ctx2.stroke();//pinta solo la esfera sin rellenar
+
+          ctx2.save();// Guardar el estado del contexto del canvas
+
+          ctx2.translate(x1, y1);// Rotar el contexto del canvas al ángulo actual
+          ctx2.rotate(angle);
+
+          ctx2.drawImage(tierra, r1 + r2 - r2 / 2, -r2 / 2, r2, r2);// Dibujar la Tierra en su posición actual
+
+          ctx2.restore();// Restaurar el estado del contexto del canvas
+
+          ctx2.drawImage(sol, x1 - r1, y1 - r1, r1 * 2, r1 * 2);// Dibujar el Sol
+          //console.log(valor);
+          if(valor > 1){ //comprobamos que el valor sea > 1 para pintar el texto
+            ctx2.font= "30px Arial";
+            ctx2.strokeText("PLANETARIO",150,50);//pintamos el contorno del texto
+          }
+        }
+        
+        function inicio() {//función para iniciar la rotación del sol mediante el evento del click
+          drawSolar();
+          angle+= posi; 
+
+          valor = window.requestAnimationFrame(inicio);//guardamos el valor de la animación
+        }
+
+        function stop() {//función para parar la rotación del sol mediante el evento del click
+          cancelAnimationFrame(valor);
+        }
+        
+      </script>
+      <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+    </head>
+    <body onload="draw();">
+        <canvas id="planetarios" width="500" height="500"></canvas><br><br>
+          <button id="iniciar">Iniciar</button>
+          <button id="parar">Parar</button>
+
+        <canvas id="imagenes" width="250" height="250"></canvas>
+    </body>
+</html>

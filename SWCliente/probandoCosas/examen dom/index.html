@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Facturas</title>
+</head>
+
+<div>
+  <h3>Introducció de productes a la factura</h3>
+  <label for="producte">Producte:</label>
+  <input type="text" id="producte" />
+  <label for="quantitat">Quantitat:</label>
+  <input type="number" id="quantitat" value="0" />
+  <label for="preu-unitari">Preu:</label>
+  <input type="number" id="preu" value="0" />
+  <button onclick="afegirLinia()">Afegir</button>
+</div>
+
+
+<table rules="groups">
+  
+    <tr>
+      <th>Producte</th>
+      <th>Quantitat</th>
+      <th>Preu</th>
+      <th>Total</th>
+      <th>Fila</th> 
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th colspan="4">Base imposable</th>
+      <th><span id="base-imposable">0</span>€</th>
+    </tr>
+    <tr>
+      <th colspan="4" data-iva="0.21">IVA 21%</th>
+      <th><span id="iva">0</span>€</th>
+    </tr>
+    <tr>
+      <th colspan="4">Total factura</th>
+      <th><span id="total">0</span>€</th>
+    </tr>
+  </tfoot>
+  <tbody>
+  </tbody>
+</table>
+  <button onclick="eliminarFila()">Borra Fila</button>
+    <script src="js.js"></script>
+	
+<body>
+</html>

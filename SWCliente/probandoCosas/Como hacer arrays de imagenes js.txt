@@ -1,0 +1,8 @@
+Como hacer una array de imagenes js:
+
+//Array de imagenes de los planetas
+var imagenes = ["./imagenes/mercurio.jpg","./imagenes/venus.jpg"];
+
+// Array con los nombres de los planetas
+
+var nomPlaneta=["Mercurio","Venus","Tierra","Marte"];

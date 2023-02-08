@@ -1,0 +1,45 @@
+
+#Mi_borde{
+	border:8px solid #000;
+    max-width: 300px !important;
+    padding:1%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}    
+
+input[type="button"].num{
+	font-size: 90px solid;
+	border:2px solid #000;
+	cursor: pointer;
+}
+
+.fondoRojo {
+	background-color:red;            
+}
+.fondoVerde {
+    background-color:green;
+}
+.fondoBlanco {
+    background-color:white;
+}
+.fondoAzul {
+    background-color:blue;
+}
+
+form{
+ background-color:white;
+ text-align: center;
+}
+
+
+input[type="button"]{
+	font-size: 28px solid;
+	width:60px;
+	height: 60px;
+	margin-bottom: 5px;
+}
+
+body{
+	background-color:#f1f1f1;
+}

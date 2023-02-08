@@ -9,69 +9,102 @@
         <!-- Compiled and minified Bootstrap JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
+        <title>Veterinario Mike</title>
     </head>
     <body>
         
         <!--Menu -->
         <div class="topnav" id="myTopnav">
-          <a href="#home">Inicio</a>
-          <a href="#news">Servicios</a>
-          <a href="#about">Sobre nosotros</a>
+          <a href="#!">Inicio</a>
+          <a href="pagSecundarias/servicios.html">Servicios</a>
+          <a href="#cita">Pedir cita</a>
+          <a href="pagSecundarias/aboutUs.html">Sobre nosotros</a>
           <a href="#contact">Contacto</a>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
           </a>
         </div>
-        <!--Carrusel de imagenes-->
-        <div id="carrusel" class="carousel slide" data-ride="carousel">
+        <main>
+          <!--Carrusel de imagenes-->
+          <div id="carrusel" class="carousel slide" data-ride="carousel">
 
-          <!-- Opcional, bullets abajo para saltar directamente a una foto (si los pones tiene q haber 1 por foto) -->
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-      
-          <!-- Contenedor de las fotos -->
-          <div class="carousel-inner" role="listbox">
-      
-            <!-- Foto 1 -->
-            <div class="item active">
-              <img id="imagenCarrusel" src="images/recepcion.jpg">
-            </div>
-      
-            <!-- Foto 2 -->
-            <div class="item">
-              <img id="imagenCarrusel" src="images/instalaciones_vet02.jpg">
-            </div>
-      
-            <!-- Foto 3 -->
-            <div class="item">
-              <img id="imagenCarrusel" src="images/quirofano-2-veterinaria-pica.jpg">
-            </div>
-      
-          </div>
-      
-          <!-- Controles para pasar las fotos -->
-          <a class="left carousel-control" href="#carrusel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#carrusel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-
-        <!--Datos de la veterinaria-->
-        <div>
-          
-        </div>
+            <!-- Opcional, bullets abajo para saltar directamente a una foto (si los pones tiene q haber 1 por foto) -->
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
         
+            <!-- Contenedor de las fotos -->
+            <div class="carousel-inner" role="listbox">
+        
+              <!-- Foto 1 -->
+              <div class="item active">
+                <img id="imagenCarrusel" src="images/recepcion.jpg" alt="La recepcion">
+              </div>
+        
+              <!-- Foto 2 -->
+              <div class="item">
+                <img id="imagenCarrusel" src="images/instalaciones_vet02.jpg" alt="Las instalaciones">
+              </div>
+        
+              <!-- Foto 3 -->
+              <div class="item">
+                <img id="imagenCarrusel" src="images/quirofano-2-veterinaria-pica.jpg" alt="El quirofano">
+              </div>
+        
+            </div>
+        
+            <!-- Controles para pasar las fotos -->
+            <a class="left carousel-control" href="#carrusel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carrusel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+          <!--Datos de la veterinaria-->
+          <div class="contenedor izq">
+              <div class="uno">
+                <img src="images/perro.jpg" alt="Un perro"/>
+              </div>
+              <div class="dos">
+                <h1><strong id="cuidadoDeTuMascotaTxt">Cuidado de tu mascota</strong></h1>
+                <p>Lo primero que usted se tiene que preguntar es si está dispuesto a adoptar un animal 
+                  y si este le conviene. Para ello deberá estar dispuesto a dedicar parte de su tiempo 
+                  a la nueva mascota, ser paciente y perseverante, compartir parte de su tiempo libre 
+                  con el animal y saber actuar con firmeza ante su posible comportamiento.<br/><br/>
+                  Para lograr que la convivencia con el perro sea lo mejor posible es fundamental tener 
+                  en cuenta las características propias de cada raza y proporcionarle los cuidados adecuados 
+                  durante las primeras semanas.</p>
+              </div>
+          </div>
+
+          <div class="contenedor">
+            <div class="uno">
+              <img src="images/alimentacionPerros.jpg" alt="Un perro siendo alimentado"/>
+            </div>
+            <div class="dos">
+              <h1><strong id="cuidadoDeTuMascotaTxt">Alimentación de tu mascota</strong></h1>
+              <p>Es muy importante para mantener a nuestro a animales de compañía que ingieran una dieta 
+                equilibrada que satisfaga sus necesidades energéticas y proporcione los nutrientes 
+                adecuados.<br/><br/>
+                Lo ideal, tanto para perros como para gatos, es que consuman alimento seco , adaptado a 
+                cada etapa de crecimiento y a cada necesidad. Nunca deben consumir alimentos crudos ya 
+                que estos podrían ser fuente de enfermedades parasitarias.<br/><br/>
+                Es conveniente prevenir la obesidad. Un animal normal debe tener las costillas palpables
+                y forma de reloj de arena visto desde arriba. Actualmente existen numerosas dietas 
+                comerciales en el mercado que pueden ayudarnos a evitar la obesidad..</p>
+            </div>
+        </div>
+      </main>
+        <!--Footer con copyright-->
         <footer>
           <p>© 2022 — 2023 VeterinarioMikeSteelMarin.</p>
-      </footer>
+        </footer>
         
         <script>
         function myFunction() {
