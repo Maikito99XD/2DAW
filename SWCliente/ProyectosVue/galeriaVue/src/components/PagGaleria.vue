@@ -1,5 +1,7 @@
 <script setup>
+    //Le definimos los emits que vamos a necesitar
     const emit = defineEmits(['pasaPagina','retrocedePagina']);
+    //recogeremos el numero de pagina
     defineProps(['numPagina']);
 </script>
 

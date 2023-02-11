@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script src="js/jquery-3.6.3.min.js"></script>
+
+    </head>
+    <body>
+        <!-- <h2>Título</h2>
+        <p class="test2">Esto es un párrafo</p>
+        <p id="test">y yo también</p>
+        <ul>
+            <li>Hola</li>
+            <li>Que</li>
+            <li>Tal</li>
+        </ul>
+        <ul>
+            <li>Hola</li>
+            <li>Que</li>
+            <li>Tal</li>
+        </ul> 
+        <button>Pulsa aquí y verás</button>-->
+
+        <!-- <h1>Ejemplo 1</h1>
+        <table border="1">
+            <tr id="fila1">
+                <td>Empresa</td>
+                <td>País</td>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Berglunds snabbkop</td>
+                <td>Sweden</td>
+            </tr>
+            <tr>
+                <td>Centro comercial</td>
+                <td>Mexico</td>
+            </tr>
+            <tr>
+                <td>Ernst Handel</td>
+                <td>Austria</td>
+            </tr>
+            <tr>
+                <td>Island</td>
+                <td>UK</td>
+            </tr>
+        </table><br/>
+        <button>Pulsa aquí y verás</button> -->
+
+
+        <!-- <p>Este texto aparece y desaparece</p>
+
+        <button id="hide">Ocultar</button>
+        <button id="show">Mostrar</button>
+        <button id="toggle">Ocultar</button> -->
+
+        <!-- <button id="b1">Haz clic para que aparezcan los cuadros</button><br><br>
+        <button id="b2">Haz clic para que desaparezcan los cuadros</button><br><br>
+        <button id="b3">Haz clic para que aparezca el perro</button><br><br>
+        <button id="b4">Haz clic para que desaparezcan el perro</button><br><br>
+
+        <div id="div1" style="width: 80px;height: 80px;display: none; background-color: red;"></div>
+        <div id="div2" style="width: 80px;height: 80px;display: none; background-color: green;"></div>
+        <div id="div3" style="width: 80px;height: 80px;display: none; background-color: blue;"></div>
+        <img src="images/perro.png" style="display: none;"/> -->
+
+        <!-- <button id="b5">Haz clic para que aparezca la animacion</button><br><br>
+        <button id="b6">Haz clic para que la animacion vuelva a su sitio</button><br><br>
+        <div id="div5" style="background: #98bf21; height: 100px; width: 100px; position: absolute;"></div> -->
+
+        <!-- <p id="test">Esto es un ejemplo con una palabra en <b>negrita</b>.</p>
+
+        <button id="btn1">Mostrar Texto</button>
+        <button id="btn2">Mostrar HTML</button> -->
+
+        <!-- <p>Nombre : <input type="text" id="test" value="Mickey Mouse"></p>
+        <button>Mostrar el valor</button> -->
+
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+
+        <div id="div10" style="width: 150px;height: 150px; background-color: red; position: absolute"></div><br>
+        <button id="btn5">Ocultar</button>
+        <button id="btn6">Mostrar</button>
+        <button id="btn7">Animar</button>
+        <br>
+
+
+
+        <script>
+            $(document).ready(function(){
+                // $("#hide").click(function(){
+                //     $("p").hide(1000);
+                // });
+                // $("#show").click(function(){
+                //     $("p").show(1000);
+                // });
+                // $("#toggle").click(function(){
+                //     $("p").toggle(2000);
+                // });
+
+                // $("#b1").click(function(){
+                //     $("#div1").fadeIn();
+                //     $("#div2").fadeIn("slow");
+                //     $("#div3").fadeIn(3000);
+                    
+                // });
+                // $("#b2").click(function(){
+                //     $("#div1").fadeOut();
+                //     $("#div2").fadeOut("slow");
+                //     $("#div3").fadeOut(3000);
+                    
+                // });
+
+                // $("#b3").click(function(){
+                    
+                //     $("img").fadeIn(3000);
+                    
+                // });
+
+                // $("#b4").click(function(){
+                    
+                //     $("img").fadeOut(3000);
+                    
+                // });
+
+                // $("#b5").click(function(){
+                    
+                //     $("#div5").animate({left: '250px', width: '200px', opacity: 0.5},3000);
+
+                        
+                // });
+                // $("#b6").click(function(){
+                    
+                //     $("#div5").animate({left: '10px', width: '100px', opacity: 1, position: 'absolute'},3000);
+
+                //     $("#div5").text("Hola");
+
+                        
+                // });
+
+                // $("#btn1").click(function(){
+                //     alert("Texto: "+$("#test").text());
+                // });
+
+                // $("#btn2").click(function(){
+                //     alert("HTML: "+$("#test").html());
+                // });
+
+                // $("button").click(function(){
+                //     alert("Valor: "+$("#test").val());
+                // });
+
+                $("p:odd").css("color", "red");
+                $("p:even").css("color", "blue");
+                $("#btn5").click(function(){
+                    $("#div10").hide();
+                });
+
+                $("#btn6").click(function(){
+                    $("#div10").show();
+                });
+
+                $("#btn7").click(function(){
+                    $("#div10").animate({left: '250px'});
+                    $("#div10").animate({top: '150px'});
+                    $("#div10").animate({botton: '150px'});
+                    
+                });
+            });
+        </script>
+    </body>
+</html>

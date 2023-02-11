@@ -2,6 +2,9 @@
 import {ref} from 'vue';
 import { RouterLink } from "vue-router";
 import { useGetData } from '@/composables/useGetData'
+import { useCounterStore } from "@/stores/store";
+const useCounter = useCounterStore();
+const {compruebaLocalStorage } = useCounter;
 const { getData, datos} = useGetData(); //Datos devuel por el composable
 //const pokemons=ref([]);
 // const getData = async () => {
@@ -18,6 +21,7 @@ const { getData, datos} = useGetData(); //Datos devuel por el composable
 // };
  getData("https://pokeapi.co/api/v2/pokemon");
  console.log(datos);
+
 
 </script>
 
