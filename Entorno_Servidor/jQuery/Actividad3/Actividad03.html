@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script src="js/jquery-3.6.3.min.js"></script>
+    </head>
+    <body>
+        <select>
+            <option>Hola buenas</option>
+            <option>Hola buenas</option>
+            <option>Hola buenas</option>
+        </select><br/><br/>
+        <button id="btn1">Cambiar color</button><br/><br/><br/>
+        <a href="https://google.es/" id="hrefGoogle">Google</a><br/><br/>
+        <button id="btn2">Cambiar enlace</button><br/><br/>
+
+        <div id="div1" style="height: 200px; width: 200px; border: 1px solid black; background-color: yellow; padding: 20px;">
+            
+        </div><br/><br/>
+
+        <button id="btn3">Esconder cuadrado</button>
+        <button id="btn4">Mostrar cuadrado</button><br/><br/>
+
+        <h1 id="micro">Microsoft</h1><br/>
+        <button id="btn5">Añade estilos</button>
+        <button id="btn6">Quita estilos</button><br/><br/>
+
+        <ol id="olNueva">
+            <li>Mi lista</li>
+        </ol>
+        <button id="btn7">Añade elemento a la lista</button><br/><br/>
+
+        <p id="test1"><b>Texto</b></p>
+        <p id="test2"><b>Texto HTML</b></p>
+
+        <button id="btn8">Muestra anterior y nuevo Texto</button>
+        <button id="btn9">Muestra anterior y nuevo Texto con HTML</button><br/><br/>
+        <button id="btn10">BORRAR TODA LA PAGINA</button>
+        <script>
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                    $("select").css("color", "blue");
+                });
+                $("#btn2").click(function(){
+                    $("#hrefGoogle").attr("href","https://portal.edu.gva.es/ieslamar/es");
+                    $("#hrefGoogle").text("Ir a aules");
+                });
+
+                $("#btn3").click(function(){
+                    $("#div1").hide();
+                });
+                $("#btn4").click(function(){
+                    $("#div1").show();
+                });
+                $("#btn5").click(function(){
+                    $("#micro").addClass("azul");
+                });
+                $("#btn6").click(function(){
+                    $("#micro").removeClass();
+                });
+                $("#btn7").click(function(){
+                    $("#olNueva").append("<li> Nuevo elemento </li>");
+                });
+                $("#btn8").click(function(){
+                    $("#test1").text("Nuevo texto");
+                });
+                $("#btn9").click(function(){
+                    $("#test2").html("Nuevo <b> html </b>");
+                });
+                $("#btn10").click(function(){
+                    $("*").remove();
+                });
+            });
+        </script>
+
+        <style>
+            .azul{
+                color: blue;
+            }
+        </style>
+    </body>
+</html>

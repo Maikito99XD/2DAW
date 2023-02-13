@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script src="js/jquery-3.6.3.min.js"></script>
+
+    </head>
+    <body>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+        <p>Hola</p>
+
+        <div id="div10" style="width: 150px;height: 150px; background-color: red; position: absolute"></div><br><br><br><br><br><br><br><br><br><br>
+        <button id="btn5">Ocultar</button>
+        <button id="btn6">Mostrar</button>
+        <button id="btn7">Animar</button><br/><br/>
+        <form>
+            <p id="nombreUsuario">Cual es tu nombre? <input type="text" id="nuevoInput"></p>
+        </form><br/>
+
+        <button id="btn11">Enviar</button>
+
+        <script>
+            $(document).ready(function(){
+                $("p:odd").css("color", "red");
+                $("p:even").css("color", "blue");
+                $("#nombreUsuario").css("color","black");
+                $("#btn5").click(function(){
+                    $("#div10").hide();
+                });
+
+                $("#btn6").click(function(){
+                    $("#div10").show();
+                });
+
+                $("#btn7").click(function(){
+                    $("#div10").animate({left: '250px'});
+                    $("#div10").animate({top: '150px'});
+                    $("#div10").animate({botton: '150px'});    
+                });
+
+                $("#btn11").click(function(){
+                    alert($("#nuevoInput").val());
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script src="js/jquery-3.6.3.min.js"></script>
+    </head>
+    <body>
+
+        <!-- <h1>Actividad 1</h1>
+        <h2>Series de Netflix</h2>
+        <ol>
+            <li id="test1">Monstruo: La historia de Jeffrey Dalmer</li>
+            <li id="test2">The crown</li>
+            <li>Nueva serie: <input type="text" id="test3" value="Una serie " /> </li>
+        </ol>
+        <button id="btn1">Cambiar 1</button>
+        <button id="btn2">Cambiar 2</button>
+        <button id="btn3">Cambiar 3</button> -->
+        <!-- Actividad2
+        <p id="test1"><b>Bloodline</b></p>
+        <p id="test2"><b>Seven Seconds</b></p>
+
+        <button id="btn1">Muestra anterior y nuevo Texto</button>
+        <button id="btn2">Muestra anterior y nuevo Texto con HTML</button> -->
+
+        <!-- Actividad 3 -->
+
+        <!-- <a href="https://google.es/" id="w3s">Google</a><br/>
+
+        <button id="btn1">Cambiar buscador</button> -->
+
+        <!-- Actividad 4 -->
+        <!-- <p>Un texto</p>
+        <ol>
+            <li>Una lista</li>
+        </ol>
+
+        <br/><br/>
+
+        <button id="btn1">Añadir texto</button>
+        <br/>
+        <button id="btn2">Añadir elemento a la lista</button>
+
+        <div id="div1" style="height: 200px; width: 200px; border: 1px solid black; background-color: yellow; padding: 20px;">
+            <p>Esto es un ejemplo</p>
+            <p>remove() elimina, no oculta</p>
+        </div>
+
+        <button id="btn3">Elimina cuadro de texto</button> -->
+        
+        <h1>Microsoft</h1>
+        <button>Añade estilos</button>
+        <script>
+            //Actividad 1
+            // $("#btn1").click(function(){
+            //     $("#test1").text("Gambito de dama");
+            // });
+            // $("#btn2").click(function(){
+            //     $("#test2").text("Una serie cualquiera");
+            // });
+            // $("#btn3").click(function(){
+            //     $("#test3").val("Una cualquiera");
+            // });
+            // Actividad 2
+            // $(document).ready(function(){
+            //     $("#btn1").click(function(){
+            //         $("#test1").text(function(i, origText){
+            //             return "Texto anterior: "+ origText +" Nuevo texto: <b>Stranger Things</b>";
+            //         });
+            //     });
+
+            //     $("#btn2").click(function(){
+            //         $("#test2").text(function(i, origText){
+            //             return "HTML anterior: "+ origText +" Nuevo HTML: <b>Ozark</b>";
+            //         });
+            //     });
+            // });
+            
+            //Actividad 3
+
+            // $(document).ready(function(){
+            //     $("#btn1").click(function(){
+            //         $("#w3s").attr("href", "https://portal.edu.gva.es/ieslamar/es");
+            //         $("#w3s").text("Aules");
+            //     });
+            // });
+
+            //Actividad 4
+            
+            // $(document).ready(function(){
+            //     $("#btn1").click(function(){
+            //         $("p").append("<b> Añado texto </b>");
+            //     });
+
+            //     $("#btn2").click(function(){
+            //         $("ol").append("<li> Añado un elemento </li>");
+            //     });
+
+            //     $("#btn3").click(function(){
+            //         $("#div1").remove();
+            //     });
+            // });
+
+
+            $(document).ready(function(){
+                $("button").click(function(){
+                    $("h1").addClass("azul");
+                });
+            });
+        </script>
+        <style>
+            .azul{
+                color: blue;
+            }
+        </style>
+    </body>
+</html>
