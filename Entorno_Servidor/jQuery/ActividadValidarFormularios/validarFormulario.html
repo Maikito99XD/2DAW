@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script src="js/jquery-3.6.3.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Formulario de registro</h2>
+            <form id="formulario">
+                <div class="form-group">
+                    <label for="pwd">Nombre:</label><br/>
+                    <input type="name" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label><br/>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="urlF">URL de Facebook:</label><br/>
+                    <input type="text" class="form-control" id="urlF" name="urlF">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Contraseña:</label><br/>
+                    <input type="password" class="form-control" id="passw" name="passw">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Repite la contraseña:</label><br/>
+                    <input type="password" class="form-control" id="Rpassw"  name="Rpassw">
+                </div>
+                <div class="form-group">
+                    <label for="prov">Selecciona provincia:</label><br/>
+                    <input type="radio" name="color" value="red">Alicante<br/>
+                    <input type="radio" name="color" value="green">Castellon<br/>
+                    <input type="radio" name="color" value="blue">Valencia<br/>
+                </div><br/>
+                <div class="form-group">
+                    
+                    <input type="checkbox"  id="terms"  name="terms" value="terms">Acepto los términos y condiciones
+                </div>
+
+                
+                
+                <br/><button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $("#formulario").submit(function(e){
+                    e.preventDefault();
+                    var nombre = $("#name").val();
+                    var email = $("#email").val();
+                    var url = $("#urlF").val();
+                    var password = $("#passw").val();
+                    var repitePass = $("#Rpassw").val();
+                    var patternEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                    var pattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/w\.-]*)*\/?$/;
+                    if(nombre === "" || email === "" || !patternEmail.test(email) ||url === "" || !pattern.test(url) || password === "" || repitePass === "" ||
+                     !$("input[type='checkbox']").is(":checked") || !$("input[name='color']:checked").val()){
+                        alert("Por favor, rellena todos los campos");
+                    }else{
+                        if(String(password) == String(repitePass) ){
+                            alert("Formulario enviado");
+                        }else{
+                            alert("Las contraseñas no coinciden");
+                        }
+                    }
+
+                    console.log( );
+                });
+            });
+        </script>
+    </body>
+</html>
