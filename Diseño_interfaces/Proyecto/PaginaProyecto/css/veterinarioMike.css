@@ -1,7 +1,5 @@
-/* #aboutUsBackGround{
-  background-image: url("../images/patitas.png");
-} */
 
+/* Esta sección es para el menú, tanto colores*/
 .topnav {
     overflow: hidden;
     background-color:#40D1E380;
@@ -32,7 +30,7 @@
 .topnav .icon {
   display: none;
 }
-
+/* Esto también es del menú pero es para versiones moviles o con pantalla pequeña*/
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
@@ -56,7 +54,7 @@
 }
   
 
-/* Para el ancho y alto de las imagenes. Modificalo a gusto =)  */
+/* Este apartado es para el carousel y sus imagenes*/
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     /* width: 100%; */ 
@@ -65,28 +63,29 @@
     object-fit: cover;
     object-position: top left;
 }
-/* Para los margenes del contendor de las fotos. Podes cambiarle el ancho a gusto tambien! */
+/* Para los margenes del contendor de las fotos. */
 .carousel-control {
     width: 10%;
 }
+/* Esto es para la cabecera del contacto*/
 #cabeceraContactoVeterinario{
   background-color: #5AAAFA;
   padding: 9px 10px;
 }
-
+/* Esto es para mejorar las imagenes*/
 #imagenCarrusel{
   width: 100%;
   height: 95vh;
   
 }
-
+/* Esto es el contenido de los cuadros de información del usuario*/
 #cuidadoDeTuMascota{
   color: black;
   font-size: 3vh;
   margin-top: 20vh;
   margin-left: 5vh;
 }
-
+/* Esto es para los contenedores de imagenes y informacion*/
 .contenedor{
   display: flex;
   justify-content: center;
@@ -172,7 +171,7 @@
       width: 100%;
     }
 }
-
+/* Esto es para el tamaño del texto*/
 #cuidadoDeTuMascotaTxt{
   color: black;
   font-size: 4.5vh;
@@ -185,6 +184,7 @@
   
 }
 
+/* Apartado del foote*/
 footer {
   width: 100%;
   background-color: #212529;
@@ -214,7 +214,7 @@ footer {
   position: fixed;
   bottom: 0;
 }
-
+/* Esto es para el contenedor de sobre nosotros*/
 #divSobreNosotros{
   width: 100%;
   height: 30vh;
@@ -229,7 +229,7 @@ footer {
 #strongSobreNosotros{
   font-size: 5vh;
 }
-
+/* La imagen de fondo que está en la página de contacto*/
 #contactoBackground{
   background-image: url('../images/patitas.png');
 }

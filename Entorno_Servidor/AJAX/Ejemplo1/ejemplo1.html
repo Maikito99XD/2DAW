@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <script src="js/jquery-3.6.3.min.js"></script>
+
+    </head>
+    <body>
+        <div id="div1"><h2>Primer ejemplo de jQuery con Ajax</h2></div>
+        <img id="imagen" ><br/>
+        <button>Mostrar texto externo</button>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    $("#div1").load("texto_ejemplo.txt");
+                    $("#imagen").attr("src","perro.jpg");
+                });
+            });
+        </script>
+    </body>
+</html>
